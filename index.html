@@ -23,36 +23,45 @@
 
     <!---MODAL CONTENEDOR---->
     <div class="modal__contenedor ">
-        <form id="confirmar__form" action="#">
-    
-            <!-----ELEGIR EL PAN----->
-            <section class="seccion__pan">
-                <h3>Elegí el pan</h3>
-                <form id="form__btn__pan" action="">
-                    <div class="div__radio__pan">
-                        <input class="pan__radio" type="radio" name="pan" value="blanco"> Blanco
-                        <input class="pan__radio" type="radio" name="pan" value="negro"> Negro
-                        <input class="pan__radio" type="radio" name="pan" value="parmesano"> Parmesano
-                    </div>
-                    <div class="div__btn__pan">
-                        <button id="form__btn__pan--atras">Cancelar</button>
-                        <button id="form__btn__pan--siguiente">Siguiente</button>
-                    </div>
-                </form>
-            </section>
-                    
+        <section class="seccion__pan">
+            <h3>Elegí el pan</h3>
+            <form id="form__btn__pan" action="">
+                <div class="div__radio__pan">
+                    <input class="pan__radio" type="radio" name="pan" value="blanco"> Blanco
+                    <input class="pan__radio" type="radio" name="pan" value="negro"> Negro
+                    <input class="pan__radio" type="radio" name="pan" value="parmesano"> Parmesano
+                </div>
+                <div class="div__btn__pan">
+                    <button id="form__btn__pan--atras">Cancelar</button>
+                    <button id="form__btn__pan--siguiente">Siguiente</button>
+                </div>
+            </form>
+        </section>
 
-            <!----ELEGIR LA PROTEINA---->
-            <section class="seccion__proteina">
-                <h3>2. Elegí la proteina</h3>
-            <div class="div__proteina">
-                <input class="proteina__radio" type="radio" name="proteina" value="lomo"> Lomo
-                <input class="proteina__radio" type="radio" name="proteina" value="pollo"> Pollo
-                <input class="proteina__radio" type="radio" name="proteina" value="tofu"> Tofu
-            </div>
-            </section>
+        <div class="div__pedido">
+            <p>Pedido</p>
+            <ol class="lista__pedido"></ol>
+        </div>
         
-            <section class="seccion__vegetales">
+        <!-- <form id="confirmar__form" action="#">
+
+        <!----ELEGIR LA PROTEINA---->
+        <section class="seccion__proteina">
+            <h3>2. Elegí la proteina</h3>
+            <form id="form__btn__proteina" action="">
+                <div class="div__proteina">
+                    <input class="proteina__radio" type="radio" name="proteina" value="lomo"> Lomo
+                    <input class="proteina__radio" type="radio" name="proteina" value="pollo"> Pollo
+                    <input class="proteina__radio" type="radio" name="proteina" value="tofu"> Tofu
+                </div>
+                <div class="div__btn__proteina">
+                    <button id="form__btn__proteina--atras">Cancelar</button>
+                    <button id="form__btn__proteina--siguiente">Siguiente</button>
+                </div>
+            </form>
+        </section>
+        
+            <!-- <section class="seccion__vegetales">
                 <h3>3. Elegí los vegetales</h3>
                 <div class="div__vegetales">
                     <input class="vegetales__radio" type="radio" name="vegetales" value="tomate"> Tomate
@@ -88,11 +97,10 @@
             </section>
     
             
-<!--             <button type="reset">Cancelar</button>
-            <button type="submit">Confirmar</button> -->
-        </form>
-        
-            <ul class="lista__pedido"></ul>
+            <button type="reset">Cancelar</button>
+            <button type="submit">Confirmar</button>
+        </form> -->
+    
     </div>
         
     <script src="index.js"></script>

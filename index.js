@@ -15,20 +15,84 @@ const arrayIngredientes = [
     { id: 14, tipo: 'tostado', nombre: 'sin tostar', precio: 0},
 ]
 
+class Sanguche {
+    constructor (pan, proteina, vegetal, aderezo, tostado) {
+        this.pan = pan;
+        this.proteina = proteina;
+        this.vegetal = vegetal;
+        this.aderezo = aderezo;
+        this.tostado = tostado
+    }
+}
 
+let carrito = []
 
+const listaResumen = $('.lista__pedido')
 const botonIniciarPedido = $('#btn-iniciar')
+const botonConfirmarPan = $('#form__btn__pan--siguiente')
+const botonConfirmarProteina = $('#form__btn__proteina--siguiente')
+
+
+// Activando modal principal
 botonIniciarPedido.on ('click', () => {
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
 })
 
-const botonConfirmarPan = $('#form__btn__pan--siguiente')
-botonConfirmarPan.on ('click', (event)=> {
-    event.preventDefault()
+function ingredientesPedido (producto) {
+    listaResumen.append (`
+                <li>Usted eligió ${producto}</li>`)            
+}
 
-    const pan = $('.pan__radio:checked').val()
-    console.log (pan)
-})
+// Agregando producto elegido al carrito
+function agregarCarrito (producto) {
+    carrito.push (arrayIngredientes.find (el => el.nombre === (producto)))
+}
+
+function totalPedido (producto) {
+    let total = carrito.reduce ((acc, el) => acc += el.precio, 0)
+
+    console.log (total)
+    //listaResumen.append (`<p>${total}</p>`)
+}
+
+// Captando valor de radio button pan.
+function elegirPan() {
+    botonConfirmarPan.on ('click', (event)=> {
+        event.preventDefault()
+    
+        const pan = $('.pan__radio:checked').val()
+    
+        agregarCarrito (pan)
+        ingredientesPedido (pan)
+        totalPedido (pan)
+        
+    
+        $('.seccion__pan').toggleClass ('seccion__pan--modificado')
+        $('.seccion__proteina').toggleClass ('seccion__proteina--modificado')
+    })
+}
+
+function elegirProteina () {
+    botonConfirmarProteina.on ('click', (event) => {
+        event.preventDefault()
+        
+        const proteina = $('.proteina__radio:checked').val()
+        
+        agregarCarrito (proteina)
+        ingredientesPedido (proteina)
+        totalPedido (proteina)
+        
+    })
+}
+
+elegirPan()
+elegirProteina ()
+
+console.log (carrito)
+
+
+
+
 
 
 
