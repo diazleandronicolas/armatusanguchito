@@ -4,56 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="jquery.js"></script>
+    <link rel="stylesheet" href="estilos.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Armá tu sanguche</h1>
+
+    <section class="seccion__principal">
+
+        <div class="imagen__sanguche"></div>
+        <div class="iniciar__compra">
+            <h1>Armá tu sanguche</h1>
+            <button id="btn-iniciar">Iniciar compra</button>
+        </div>
+    </section>
+
 
     
-    <form id="confirmar__form" action="#">
-        <input class="nombre__input" type="text" placeholder="Nombre" id="">
-        <input class="telefono__input" type="text" placeholder="Telefono" id="">
-
-
-        <h3>1. Elegí el pan</h3>
+    <div class="modal__contenedor">
+        <form id="confirmar__form" action="#">
     
-        <input class="pan__radio" type="radio" name="pan" value="blanco"> Blanco
-        <input class="pan__radio" type="radio" name="pan" value="negro"> Negro
-        <input class="pan__radio" type="radio" name="pan" value="parmesano"> Parmesano
+            <section class="seccion__pan">
+                <h3>1. Elegí el pan</h3>
+                <div class="div__pan">
+                    <input class="pan__radio" type="radio" name="pan" value="blanco"> Blanco
+                    <input class="pan__radio" type="radio" name="pan" value="negro"> Negro
+                    <input class="pan__radio" type="radio" name="pan" value="parmesano"> Parmesano
+                </div>
+            </section>
+                    
+            <section class="seccion__proteina">
+                <h3>2. Elegí la proteina</h3>
+            <div class="div__proteina">
+                <input class="proteina__radio" type="radio" name="proteina" value="lomo"> Lomo
+                <input class="proteina__radio" type="radio" name="proteina" value="pollo"> Pollo
+                <input class="proteina__radio" type="radio" name="proteina" value="tofu"> Tofu
+            </div>
+            </section>
+        
+            <section class="seccion__vegetales">
+                <h3>3. Elegí los vegetales</h3>
+                <div class="div__vegetales">
+                    <input class="vegetales__radio" type="radio" name="vegetales" value="tomate"> Tomate
+                    <input class="vegetales__radio" type="radio" name="vegetales" value="lechuga"> Lechuga
+                    <input class="vegetales__radio" type="radio" name="vegetales" value="rucula"> Rucula
+                </div>
+            </section>
+        
+            <section class="seccion__aderezo">
+                <h3>4. Elegí el aderezo</h3>
+                <div class="div__aderezo">
+                    <input class="aderezo__radio" type="radio" name="aderezo" value="mayonesa"> Mayonesa
+                    <input class="aderezo__radio" type="radio" name="aderezo" value="barbacoa"> Barbacoa
+                    <input class="aderezo__radio" type="radio" name="aderezo" value="picante"> Picante
+                </div>
+            </section>
+        
+            <section class="seccion__tostado">
+                <h3>5. ¿Lo querés tostado?</h3>
+                <div class="div__tostado">
+                    <input class="tostado__radio" type="radio" name="tostado" value="tostado"> Tostado
+                    <input class="tostado__radio" type="radio" name="tostado" value="sin tostar"> Sin tostar
+                </div>
+            </section>
+        
+            <section class="seccion__datos">
+                <h3>Datos:</h3>
+                <input class="nombre__input" type="text" placeholder="Nombre" id="">
+                <input class="telefono__input" type="text" placeholder="Telefono" id="">
     
-        <h3>2. Elegí la proteina</h3>
+                <h3>Observaciones:</h3>
+                <textarea id="observaciones__textarea" cols="30" rows="5"></textarea>
+            </section>
     
-        <input class="proteina__radio" type="radio" name="proteina" value="lomo"> Lomo
-        <input class="proteina__radio" type="radio" name="proteina" value="pollo"> Pollo
-        <input class="proteina__radio" type="radio" name="proteina" value="tofu"> Tofu
-    
-        <h3>3. Elegí los vegetales</h3>
-    
-        <input class="vegetales__radio" type="radio" name="vegetales" value="tomate"> Tomate
-        <input class="vegetales__radio" type="radio" name="vegetales" value="lechuga"> Lechuga
-        <input class="vegetales__radio" type="radio" name="vegetales" value="rucula"> Rucula
-    
-        <h3>4. Elegí el aderezo</h3>
-    
-        <input class="aderezo__radio" type="radio" name="aderezo" value="mayonesa"> Mayonesa
-        <input class="aderezo__radio" type="radio" name="aderezo" value="barbacoa"> Barbacoa
-        <input class="aderezo__radio" type="radio" name="aderezo" value="picante"> Picante
-    
-        <h3>5. ¿Lo querés tostado?</h3>
-    
-        <input class="tostado__radio" type="radio" name="tostado" value="tostado"> Tostado
-        <input class="tostado__radio" type="radio" name="tostado" value="sin tostar"> Sin tostar
-
-        <h3>Observaciones:</h3>
-        <textarea id="observaciones__textarea" cols="30" rows="5"></textarea>
-
-        <br>
-
-        <button type="reset">Cancelar</button>
-        <button type="submit">Confirmar</button>
-    </form>
-    
-        <ul class="lista__pedido"></ul>
+            <button type="reset">Cancelar</button>
+            <button type="submit">Confirmar</button>
+        </form>
+        
+            <ul class="lista__pedido"></ul>
+    </div>
         
     <script src="index.js"></script>
 </body>
