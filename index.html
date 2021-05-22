@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Armá tu sanguche</h1>
+
+    
+    <form id="confirmar__form" action="#">
+        <input class="nombre__input" type="text" placeholder="Nombre" id="">
+        <input class="telefono__input" type="text" placeholder="Telefono" id="">
+
+
+        <h3>1. Elegí el pan</h3>
+    
+        <input class="pan__radio" type="radio" name="pan" value="blanco"> Blanco
+        <input class="pan__radio" type="radio" name="pan" value="negro"> Negro
+        <input class="pan__radio" type="radio" name="pan" value="parmesano"> Parmesano
+    
+        <h3>2. Elegí la proteina</h3>
+    
+        <input class="proteina__radio" type="radio" name="proteina" value="lomo"> Lomo
+        <input class="proteina__radio" type="radio" name="proteina" value="pollo"> Pollo
+        <input class="proteina__radio" type="radio" name="proteina" value="tofu"> Tofu
+    
+        <h3>3. Elegí los vegetales</h3>
+    
+        <input class="vegetales__radio" type="radio" name="vegetales" value="tomate"> Tomate
+        <input class="vegetales__radio" type="radio" name="vegetales" value="lechuga"> Lechuga
+        <input class="vegetales__radio" type="radio" name="vegetales" value="rucula"> Rucula
+    
+        <h3>4. Elegí el aderezo</h3>
+    
+        <input class="aderezo__radio" type="radio" name="aderezo" value="mayonesa"> Mayonesa
+        <input class="aderezo__radio" type="radio" name="aderezo" value="barbacoa"> Barbacoa
+        <input class="aderezo__radio" type="radio" name="aderezo" value="picante"> Picante
+    
+        <h3>5. ¿Lo querés tostado?</h3>
+    
+        <input class="tostado__radio" type="radio" name="tostado" value="tostado"> Tostado
+        <input class="tostado__radio" type="radio" name="tostado" value="sin tostar"> Sin tostar
+
+        <h3>Observaciones:</h3>
+        <textarea id="observaciones__textarea" cols="30" rows="5"></textarea>
+
+        <br>
+
+        <button type="reset">Cancelar</button>
+        <button type="submit">Confirmar</button>
+    </form>
+    
+        <ul class="lista__pedido"></ul>
+        
+    <script src="index.js"></script>
+</body>
+</html>
