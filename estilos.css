@@ -1,0 +1,39 @@
+body {
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+.seccion__principal {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.imagen__sanguche {
+    width: 100%;
+    height: 100vh;
+    background-color: red;
+}
+
+h1 {
+    padding: 0 0 4em 0;
+    font-size: 4em;
+}
+
+#btn-iniciar {
+    width: 50%;
+    height: 10vh;
+}
+
+.iniciar__compra {
+    width: 100%;
+    height: 100vh;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
