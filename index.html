@@ -21,19 +21,28 @@
     </section>
 
 
-    
-    <div class="modal__contenedor">
+    <!---MODAL CONTENEDOR---->
+    <div class="modal__contenedor ">
         <form id="confirmar__form" action="#">
     
+            <!-----ELEGIR EL PAN----->
             <section class="seccion__pan">
-                <h3>1. Elegí el pan</h3>
-                <div class="div__pan">
-                    <input class="pan__radio" type="radio" name="pan" value="blanco"> Blanco
-                    <input class="pan__radio" type="radio" name="pan" value="negro"> Negro
-                    <input class="pan__radio" type="radio" name="pan" value="parmesano"> Parmesano
-                </div>
+                <h3>Elegí el pan</h3>
+                <form id="form__btn__pan" action="">
+                    <div class="div__radio__pan">
+                        <input class="pan__radio" type="radio" name="pan" value="blanco"> Blanco
+                        <input class="pan__radio" type="radio" name="pan" value="negro"> Negro
+                        <input class="pan__radio" type="radio" name="pan" value="parmesano"> Parmesano
+                    </div>
+                    <div class="div__btn__pan">
+                        <button id="form__btn__pan--atras">Cancelar</button>
+                        <button id="form__btn__pan--siguiente">Siguiente</button>
+                    </div>
+                </form>
             </section>
                     
+
+            <!----ELEGIR LA PROTEINA---->
             <section class="seccion__proteina">
                 <h3>2. Elegí la proteina</h3>
             <div class="div__proteina">
@@ -78,8 +87,9 @@
                 <textarea id="observaciones__textarea" cols="30" rows="5"></textarea>
             </section>
     
-            <button type="reset">Cancelar</button>
-            <button type="submit">Confirmar</button>
+            
+<!--             <button type="reset">Cancelar</button>
+            <button type="submit">Confirmar</button> -->
         </form>
         
             <ul class="lista__pedido"></ul>

@@ -15,7 +15,24 @@ const arrayIngredientes = [
     { id: 14, tipo: 'tostado', nombre: 'sin tostar', precio: 0},
 ]
 
-const botonAgregar = $('#confirmar__form')
+
+
+const botonIniciarPedido = $('#btn-iniciar')
+botonIniciarPedido.on ('click', () => {
+    $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
+})
+
+const botonConfirmarPan = $('#form__btn__pan--siguiente')
+botonConfirmarPan.on ('click', (event)=> {
+    event.preventDefault()
+
+    const pan = $('.pan__radio:checked').val()
+    console.log (pan)
+})
+
+
+
+/* const botonAgregar = $('#confirmar__form')
 const listaPedido = $('.lista__pedido')
 
 botonAgregar.on('submit', (event) => {
@@ -55,4 +72,4 @@ botonAgregar.on('submit', (event) => {
                     <li>El monto total es: ${precioTotal}$</li>
                     <p>Teléfono: ${telefono}</p>
                     <p>Observaciones: ${observaciones}</p>`)
-})
+}) */
