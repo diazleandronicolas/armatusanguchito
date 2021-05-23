@@ -15,22 +15,14 @@ const arrayIngredientes = [
     { id: 14, tipo: 'tostado', nombre: 'sin tostar', precio: 0},
 ]
 
-class Sanguche {
-    constructor (pan, proteina, vegetal, aderezo, tostado) {
-        this.pan = pan;
-        this.proteina = proteina;
-        this.vegetal = vegetal;
-        this.aderezo = aderezo;
-        this.tostado = tostado
-    }
-}
-
 let carrito = []
+
 
 const listaResumen = $('.lista__pedido')
 const botonIniciarPedido = $('#btn-iniciar')
 const botonConfirmarPan = $('#form__btn__pan--siguiente')
 const botonConfirmarProteina = $('#form__btn__proteina--siguiente')
+const botonConfirmarVegetales = $('#form__btn__vegetales--siguiente')
 
 
 // Activando modal principal
@@ -38,21 +30,25 @@ botonIniciarPedido.on ('click', () => {
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
 })
 
-function ingredientesPedido (producto) {
-    listaResumen.append (`
-                <li>Usted eligió ${producto}</li>`)            
+function ingredientesPedido (carrito) {
+    carrito.forEach ( (el) => {
+        listaResumen.append (`
+                    <li>Usted eligió ${el.tipo} ${el.nombre}</li>`)            
+    })
 }
 
 // Agregando producto elegido al carrito
 function agregarCarrito (producto) {
     carrito.push (arrayIngredientes.find (el => el.nombre === (producto)))
+    console.log (carrito)
+    ingredientesPedido (carrito)
 }
 
-function totalPedido (producto) {
+function totalPedido () {
     let total = carrito.reduce ((acc, el) => acc += el.precio, 0)
 
     console.log (total)
-    //listaResumen.append (`<p>${total}</p>`)
+    listaResumen.append (`<p>${total}</p>`)
 }
 
 // Captando valor de radio button pan.
@@ -62,13 +58,10 @@ function elegirPan() {
     
         const pan = $('.pan__radio:checked').val()
     
-        agregarCarrito (pan)
-        ingredientesPedido (pan)
-        totalPedido (pan)
-        
+        agregarCarrito (pan)        
     
         $('.seccion__pan').toggleClass ('seccion__pan--modificado')
-        $('.seccion__proteina').toggleClass ('seccion__proteina--modificado')
+        $('.seccion__proteina').addClass ('seccion__proteina--modificado')
     })
 }
 
@@ -79,14 +72,37 @@ function elegirProteina () {
         const proteina = $('.proteina__radio:checked').val()
         
         agregarCarrito (proteina)
-        ingredientesPedido (proteina)
-        totalPedido (proteina)
+/*         ingredientesPedido (proteina)
+        totalPedido (proteina) */
+
+        $('.seccion__proteina').toggleClass ('seccion__proteina--modificado')
+        $('.seccion__vegetales').toggleClass('seccion__vegetales--modificado')
         
+    })
+}
+
+function elegirVegetales () {
+    botonConfirmarVegetales.on ('click', (event) => {
+        event.preventDefault ()
+        const vegetales = []
+
+        $("input:checkbox:checked").each(function() {
+            const vegetalesCheckbox = $(this).val()
+            vegetales.push (vegetalesCheckbox)
+        })
+
+        for (let vegetal of vegetales) {
+            agregarCarrito (vegetal)
+        }
+        ingredientesPedido (vegetales)
+        totalPedido (vegetales)
+
     })
 }
 
 elegirPan()
 elegirProteina ()
+elegirVegetales()
 
 console.log (carrito)
 

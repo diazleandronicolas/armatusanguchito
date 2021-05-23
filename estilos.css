@@ -114,12 +114,31 @@ h1 {
     align-items: center;
     justify-content: space-around;
     justify-items: center;
+    visibility: hidden;
 }
 
 .seccion__proteina--modificado {
     display: flex;
+    visibility: visible;
 }
 
 .seccion__pan--modificado {
     display: none;
+    visibility: hidden;
+}
+
+.seccion__vegetales {
+    width: 70%;
+    height: 80vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    justify-items: center;
+    visibility: hidden;
+}
+
+.seccion__vegetales--modificado {
+    display: flex;
+    visibility: visible;
 }
