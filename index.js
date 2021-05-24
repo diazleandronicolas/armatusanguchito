@@ -23,6 +23,7 @@ const botonIniciarPedido = $('#btn-iniciar')
 const botonConfirmarPan = $('#form__btn__pan--siguiente')
 const botonConfirmarProteina = $('#form__btn__proteina--siguiente')
 const botonConfirmarVegetales = $('#form__btn__vegetales--siguiente')
+const botonConfirmarAderezo = $('#form__btn__aderezo--siguiente')
 
 
 // Activando modal principal
@@ -32,10 +33,12 @@ botonIniciarPedido.on ('click', () => {
 
 // Iterando elementos del carrito para armar la lista del pedido
 function ingredientesPedido (carrito) {
-    carrito.forEach ( (el) => {
+
+    carrito[carrito.length-1];{
         listaResumen.append (`
-                    <li>Usted eligió ${el.tipo} ${el.nombre}</li>`)            
-    })
+            <li>Usted eligió ${carrito[carrito.length-1].tipo} ${carrito[carrito.length-1].nombre}</li>`)            
+    }
+
 }
 
 // Agregando producto elegido al carrito
@@ -64,6 +67,8 @@ function elegirPan() {
     
         $('.seccion__pan').toggleClass ('seccion__pan--modificado')
         $('.seccion__proteina').addClass ('seccion__proteina--modificado')
+
+        elegirProteina ()
     })
 }
 
@@ -79,6 +84,7 @@ function elegirProteina () {
         $('.seccion__proteina').toggleClass ('seccion__proteina--modificado')
         $('.seccion__vegetales').toggleClass('seccion__vegetales--modificado')
         
+        elegirVegetales()
     })
 }
 
@@ -86,9 +92,10 @@ function elegirProteina () {
 function elegirVegetales () {
     botonConfirmarVegetales.on ('click', (event) => {
         event.preventDefault ()
+
         const vegetales = []
 
-        $("input:checkbox:checked").each(function() {
+        $(".vegetales__checkbox:checkbox:checked").each(function() {
             const vegetalesCheckbox = $(this).val()
             vegetales.push (vegetalesCheckbox)
         })
@@ -97,11 +104,32 @@ function elegirVegetales () {
             agregarCarrito (vegetal)
         }
 
+        $('.seccion__vegetales').toggleClass ('seccion__vegetales--modificado')
+        $('.seccion__aderezo').toggleClass ('seccion__aderezo--modificado')
+
+        elegirAderezo()
     })
 }
 
-elegirPan()
-elegirProteina ()
-elegirVegetales()
+function elegirAderezo (){
+    botonConfirmarAderezo.on ('click', (event) => {
+        event.preventDefault ()
 
-console.log (carrito)
+        const aderezos = []
+
+        $(".aderezo__checkbox:checkbox:checked").each(function() {
+            const aderezosCheckbox = $(this).val()
+            aderezos.push (aderezosCheckbox)
+        })
+
+        for (let aderezo of aderezos) {
+            agregarCarrito (aderezo)
+        }
+
+        console.log (aderezos)
+    })
+
+}
+
+elegirPan()
+

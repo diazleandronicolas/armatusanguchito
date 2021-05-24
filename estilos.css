@@ -66,6 +66,39 @@ h1 {
     justify-items: center;
 }
 
+.seccion__proteina {
+    width: 70%;
+    height: 80vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    justify-items: center;
+    visibility: hidden;
+}
+
+.seccion__vegetales {
+    width: 70%;
+    height: 80vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    justify-items: center;
+    visibility: hidden;
+}
+
+.seccion__aderezo {
+    width: 70%;
+    height: 80vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    justify-items: center;
+    visibility: hidden;
+}
+
 .seccion__pan h3 {
     font-size: 5em;
     text-align: center;
@@ -106,17 +139,6 @@ h1 {
     bottom: 1px;
 }
 
-.seccion__proteina {
-    width: 70%;
-    height: 80vh;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    justify-items: center;
-    visibility: hidden;
-}
-
 .seccion__proteina--modificado {
     display: flex;
     visibility: visible;
@@ -127,18 +149,12 @@ h1 {
     visibility: hidden;
 }
 
-.seccion__vegetales {
-    width: 70%;
-    height: 80vh;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    justify-items: center;
-    visibility: hidden;
+.seccion__vegetales--modificado {
+    display: flex;
+    visibility: visible;
 }
 
-.seccion__vegetales--modificado {
+.seccion__aderezo--modificado {
     display: flex;
     visibility: visible;
 }
