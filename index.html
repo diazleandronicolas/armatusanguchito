@@ -16,7 +16,7 @@
         </div>
         <div class="iniciar__compra">
             <h1>Armá tu sanguche</h1>
-            <button id="btn-iniciar">Iniciar compra</button>
+            <button id="btn-iniciar">Armar sanguchito</button>
         </div>
     </section>
 
@@ -42,8 +42,6 @@
             <h3>Pedido:</h3>
             <ol class="lista__pedido"></ol>
         </div>
-        
-        <!-- <form id="confirmar__form" action="#">
 
         <!----ELEGIR LA PROTEINA---->
         <section class="seccion__proteina">
@@ -106,21 +104,22 @@
             </form>
         </section>
         
-            <!---
-            <section class="seccion__datos">
-                <h3>Datos:</h3>
-                <input class="nombre__input" type="text" placeholder="Nombre" id="">
-                <input class="telefono__input" type="text" placeholder="Telefono" id="">
-    
-                <h3>Observaciones:</h3>
-                <textarea id="observaciones__textarea" cols="30" rows="5"></textarea>
-            </section>
-    
-            
-            <button type="reset">Cancelar</button>
-            <button type="submit">Confirmar</button>
-        </form> -->
-    
+        <section class="seccion__datos">
+            <h3>¿Para quién es el pedido?</h3>
+            <form action="" id="form__btn__datos">
+                <div class="div__datos">
+                    <input class="nombre__input" type="text" placeholder="Nombre" id="">
+                    <input class="telefono__input" type="text" placeholder="Telefono" id="">
+                    <input type="text" class="calle__input" placeholder="Calle">
+                    <input type="text" class="altura__input" placeholder="Altura">
+                </div>
+                <div class="div__btn__datos">
+                    <button id="form__btn__datos--atras" type="reset">Cancelar</button>
+                    <button id="form__btn__datos--siguiente" type="submit">Confirmar</button>
+                </div>
+            </form>
+        </section>
+
     </div>
         
     <script src="index.js"></script>

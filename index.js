@@ -11,7 +11,7 @@ const arrayIngredientes = [
     { id: 10, tipo: 'aderezo', nombre: 'mayonesa', precio: 50},
     { id: 11, tipo: 'aderezo', nombre: 'barbacoa', precio: 70},
     { id: 12, tipo: 'aderezo', nombre: 'picante', precio: 70},
-    { id: 13, tipo: 'tostado', nombre: 'tostado', precio: 10},
+    { id: 13, tipo: 'tostado', nombre: 'tostado', precio: 0},
     { id: 14, tipo: 'tostado', nombre: 'sin tostar', precio: 0},
 ]
 
@@ -19,16 +19,27 @@ let carrito = []
 
 
 const listaResumen = $('.lista__pedido')
+
 const botonIniciarPedido = $('#btn-iniciar')
+
 const botonConfirmarPan = $('#form__btn__pan--siguiente')
 const botonConfirmarProteina = $('#form__btn__proteina--siguiente')
 const botonConfirmarVegetales = $('#form__btn__vegetales--siguiente')
 const botonConfirmarAderezo = $('#form__btn__aderezo--siguiente')
+const botonConfirmarTostado = $('#form__btn__tostado--siguiente')
+const botonConfirmarDatos = $('#form__btn__datos--siguiente')
+
+const inputNombre = $('.nombre__input')
+const inputTelefono = $('.telefono__input')
+const inputCalle = $('.calle__input')
+const inputAltura = $('.altura__input')
 
 
 // Activando modal principal
 botonIniciarPedido.on ('click', () => {
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
+
+    elegirPan()
 })
 
 // Iterando elementos del carrito para armar la lista del pedido
@@ -70,6 +81,10 @@ function elegirPan() {
 
         elegirProteina ()
     })
+}
+
+function resumenCompra () {
+
 }
 
 // Captando valor de radio button PROTEINA.
@@ -127,9 +142,46 @@ function elegirAderezo (){
         }
 
         console.log (aderezos)
-    })
 
+        $('.seccion__aderezo').toggleClass ('seccion__aderezo--modificado')
+        $('.seccion__tostado').addClass ('seccion__tostado--modificado')
+        elegirTostado ()
+    })
 }
 
-elegirPan()
+function elegirTostado() {
+    botonConfirmarTostado.on ('click', (event)=> {
+        event.preventDefault()
+    
+        const tostado = $('.tostado__radio:checked').val()
+    
+        $('.seccion__tostado').toggleClass ('seccion__tostado--modificado')
+        $('.seccion__datos').addClass ('seccion__datos--modificado')
+        agregarCarrito (tostado)
+        
+        completarDatos()
+    })
+}
+
+function completarDatos () {
+    botonConfirmarDatos.on ('click', (event) => {
+        event.preventDefault ()
+
+        const datos = []
+
+        const nombre = inputNombre.val()
+        const telefono = inputTelefono.val()
+        const calle = inputCalle.val()
+        const altura = inputAltura.val()
+
+        const pushearDatos = (nombre, telefono, calle, altura) => {
+            datos.push (nombre, telefono, calle, altura)
+        }
+
+        pushearDatos (nombre, telefono, calle, altura)
+    
+        $('.seccion__datos').toggleClass ('seccion__datos--modificado')
+
+    })
+}
 
