@@ -30,6 +30,7 @@ botonIniciarPedido.on ('click', () => {
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
 })
 
+// Iterando elementos del carrito para armar la lista del pedido
 function ingredientesPedido (carrito) {
     carrito.forEach ( (el) => {
         listaResumen.append (`
@@ -40,18 +41,19 @@ function ingredientesPedido (carrito) {
 // Agregando producto elegido al carrito
 function agregarCarrito (producto) {
     carrito.push (arrayIngredientes.find (el => el.nombre === (producto)))
-    console.log (carrito)
+
     ingredientesPedido (carrito)
+    totalPedido(carrito)
 }
 
-function totalPedido () {
+// Contador del precio total
+function totalPedido (carrito) {
     let total = carrito.reduce ((acc, el) => acc += el.precio, 0)
 
-    console.log (total)
     listaResumen.append (`<p>${total}</p>`)
 }
 
-// Captando valor de radio button pan.
+// Captando valor de radio button PAN.
 function elegirPan() {
     botonConfirmarPan.on ('click', (event)=> {
         event.preventDefault()
@@ -65,6 +67,7 @@ function elegirPan() {
     })
 }
 
+// Captando valor de radio button PROTEINA.
 function elegirProteina () {
     botonConfirmarProteina.on ('click', (event) => {
         event.preventDefault()
@@ -72,8 +75,6 @@ function elegirProteina () {
         const proteina = $('.proteina__radio:checked').val()
         
         agregarCarrito (proteina)
-/*         ingredientesPedido (proteina)
-        totalPedido (proteina) */
 
         $('.seccion__proteina').toggleClass ('seccion__proteina--modificado')
         $('.seccion__vegetales').toggleClass('seccion__vegetales--modificado')
@@ -81,6 +82,7 @@ function elegirProteina () {
     })
 }
 
+// Captando valores de checkbox VEGETALES.
 function elegirVegetales () {
     botonConfirmarVegetales.on ('click', (event) => {
         event.preventDefault ()
@@ -94,8 +96,6 @@ function elegirVegetales () {
         for (let vegetal of vegetales) {
             agregarCarrito (vegetal)
         }
-        ingredientesPedido (vegetales)
-        totalPedido (vegetales)
 
     })
 }
@@ -105,51 +105,3 @@ elegirProteina ()
 elegirVegetales()
 
 console.log (carrito)
-
-
-
-
-
-
-
-/* const botonAgregar = $('#confirmar__form')
-const listaPedido = $('.lista__pedido')
-
-botonAgregar.on('submit', (event) => {
-    event.preventDefault()
-
-    const nombre = $('.nombre__input').val()
-    const telefono = $('.telefono__input').val()
-    const observaciones = $('#observaciones__textarea').val()
-    
-    const pan = $('.pan__radio:checked').val()
-    const proteina = $('.proteina__radio:checked').val()
-    const vegetales = $('.vegetales__radio:checked').val()
-    const aderezo = $('.aderezo__radio:checked').val()
-    const tostado = $('.tostado__radio:checked').val()
-
-    let carrito = []
-
-    function pushear (producto) {
-        carrito.push (arrayIngredientes.find (el => el.nombre == (producto)))
-    }
-
-    pushear (pan)
-    pushear (proteina)
-    pushear (vegetales)
-    pushear (aderezo)
-    pushear (tostado)
-
-    let precioTotal = carrito.reduce ((acc, el) => acc += el.precio, 0)
-
-    listaPedido.prepend (`
-                    <h2>${nombre}, este es tu sanguche:</h2>
-                    <li>Pan: ${pan}</li>
-                    <li>Proteina: ${proteina}</li>
-                    <li>Vegetales: ${vegetales}</li>
-                    <li>Aderezo: ${aderezo}</li>
-                    <li>${tostado}</li>
-                    <li>El monto total es: ${precioTotal}$</li>
-                    <p>Teléfono: ${telefono}</p>
-                    <p>Observaciones: ${observaciones}</p>`)
-}) */
