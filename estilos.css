@@ -66,6 +66,7 @@ h1 {
     justify-items: center;
 }
 
+.seccion__resumen,
 .seccion__proteina,
 .seccion__vegetales,
 .seccion__aderezo,
@@ -125,7 +126,8 @@ h1 {
 .seccion__vegetales--modificado,
 .seccion__aderezo--modificado,
 .seccion__tostado--modificado,
-.seccion__datos--modificado {
+.seccion__datos--modificado,
+.seccion__resumen--modifcado {
     display: flex;
     visibility: visible;
 }
@@ -133,4 +135,10 @@ h1 {
 .seccion__pan--modificado {
     display: none;
     visibility: hidden;
+}
+
+
+.seccion__resumen--modificado {
+    display: flex;
+    visibility: visible;
 }

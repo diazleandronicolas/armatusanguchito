@@ -22,6 +22,8 @@ const listaResumen = $('.lista__pedido')
 
 const botonIniciarPedido = $('#btn-iniciar')
 
+const botonCancelarProteina = $('#form__btn__proteina--atras')
+
 const botonConfirmarPan = $('#form__btn__pan--siguiente')
 const botonConfirmarProteina = $('#form__btn__proteina--siguiente')
 const botonConfirmarVegetales = $('#form__btn__vegetales--siguiente')
@@ -58,6 +60,7 @@ function agregarCarrito (producto) {
 
     ingredientesPedido (carrito)
     totalPedido(carrito)
+
 }
 
 // Contador del precio total
@@ -76,15 +79,19 @@ function elegirPan() {
     
         agregarCarrito (pan)        
     
-        $('.seccion__pan').toggleClass ('seccion__pan--modificado')
+        $('.seccion__pan').addClass ('seccion__pan--modificado')
         $('.seccion__proteina').addClass ('seccion__proteina--modificado')
 
         elegirProteina ()
     })
 }
 
-function resumenCompra () {
+function pasoAnterior () { 
 
+    listaResumen.empty ()   
+    carrito.pop()       
+
+    console.log (carrito)
 }
 
 // Captando valor de radio button PROTEINA.
@@ -100,6 +107,15 @@ function elegirProteina () {
         $('.seccion__vegetales').toggleClass('seccion__vegetales--modificado')
         
         elegirVegetales()
+    })
+
+    botonCancelarProteina.on ('click', (event) => {
+        event.preventDefault()
+
+        $('.seccion__proteina').removeClass('seccion__proteina--modificado')
+        $('.seccion__pan').removeClass('seccion__pan--modificado')
+
+        pasoAnterior()
     })
 }
 
@@ -181,7 +197,7 @@ function completarDatos () {
         pushearDatos (nombre, telefono, calle, altura)
     
         $('.seccion__datos').toggleClass ('seccion__datos--modificado')
+        $('.seccion__resumen').addClass ('seccion__resumen--modificado')
 
     })
 }
-
