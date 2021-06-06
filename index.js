@@ -15,8 +15,12 @@ const arrayIngredientes = [
     { id: 14, tipo: 'tostado', nombre: 'sin tostar', precio: 0},
 ]
 
+
+let resumenCarrito = false;
+let resumenDatos = false;
+
 let carrito = []
-let compraFinalizar = false;
+let nuevoCarrito = []
 
 const listaPedido = $('.lista__pedido')
 const listaTotal = $('.lista__total')
@@ -44,7 +48,6 @@ const inputTelefono = $('.telefono__input')
 const inputCalle = $('.calle__input')
 const inputAltura = $('.altura__input')
 
-let nuevoCarrito = []
 // Activando modal principal
 botonIniciarPedido.on ('click', () => {
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
@@ -57,18 +60,18 @@ function agregarCarrito (producto) {
     
     carrito.push (arrayIngredientes.find (el => el.nombre === (producto)))
 
+    console.log (carrito)
+
     let lista = new Set (carrito)
-    nuevoCarrito = Array.from (lista)
+    let carritoMejorado = Array.from (lista)
     
-    carrito = nuevoCarrito
+    nuevoCarrito = carritoMejorado
 
-    ingredientesPedido (carrito)
-    totalPedido(carrito) 
+    console.log (nuevoCarrito)
 
-    if (compraFinalizar) {
-        resumenCompra(carrito)
-        console.log ('entro')
-    }
+    ingredientesPedido (nuevoCarrito)
+    totalPedido(nuevoCarrito) 
+
 }
 
 // Iterando elementos del carrito para armar la lista del pedido
@@ -79,7 +82,6 @@ function ingredientesPedido (carrito) {
         listaPedido.append (`
             <li>Usted eligió ${carrito[carrito.length-1].tipo} ${carrito[carrito.length-1].nombre}</li>`)            
     }
-
 }
 
 // Contador del precio total
@@ -138,6 +140,7 @@ function elegirProteina () {
         $('.seccion__pan').removeClass('seccion__pan--modificado')
 
         pasoAnterior()
+        
     })
 }
 
@@ -170,6 +173,7 @@ function elegirVegetales () {
         $('.seccion__proteina').addClass('seccion__proteina--modificado')
 
         pasoAnterior()
+        
     })
 }
 
@@ -215,7 +219,7 @@ function elegirTostado() {
         $('.seccion__tostado').removeClass ('seccion__tostado--modificado')
         $('.seccion__datos').addClass ('seccion__datos--modificado')
         
-        compraFinalizar = true;
+        
         completarDatos()
     })
 
@@ -233,8 +237,6 @@ function completarDatos () {
     botonConfirmarDatos.on ('click', (event) => {
         event.preventDefault ()
 
-        const datosArray = []
-
         function Datos (nombre, telefono, calle, altura) {
             this.nombre = nombre;
             this.telefono = telefono;
@@ -249,21 +251,15 @@ function completarDatos () {
         
         const datos = new Datos (nombre, telefono, calle, altura)
 
+        const datosArray = []
         datosArray.push (datos)
-        console.log (datosArray)
-/* 
-        const pushearDatos = (nombre, telefono, calle, altura) => {
-            datos.push (nombre, telefono, calle, altura)
-        }
-
-        pushearDatos (nombre, telefono, calle, altura) */
     
         $('.seccion__datos').removeClass ('seccion__datos--modificado')
         $('.seccion__resumen').addClass ('seccion__resumen--modificado')
 
-        //resumenCompra(datosArray)
-        console.log (carrito)
+        $('.div__pedido').addClass ('div__pedido--modificado')
 
+        resumenCompra(datosArray)
         
 
     })
@@ -280,24 +276,26 @@ function completarDatos () {
 
 function resumenCompra (datos) {
 
-    datos.forEach ((el) => {
-        listaResumen.append (`<li>${el.tipo} ${el.nombre}</li>`)
-        
-    })
+    if (!resumenCarrito) {
 
-/*     datos.forEach ((el) => {
-        listaResumen.append (`
-                        <li>nombre: ${el.nombre}</li>`)
-    }) */
-/*     datos.forEach( (el) => {
+        nuevoCarrito.forEach( (el) => {
+            listaResumen.append (`<li>${el.tipo} ${el.nombre}</li>`)
+            resumenCarrito= true;
+        })
+    }
 
-        listaResumen.append (`
-                        <li>nombre: ${el.nombre}</li>
-                        <li>telefono: ${el.telefono}</li>
-                        <li>calle: ${el.calle}</li>
-                        <li>altura: ${el.altura}</li>
-                                    `)
-    }) */
+    if (!resumenDatos){
+
+        datos.forEach( (el) => {
+            listaResumen.append (`
+                            <li>nombre: ${el.nombre}</li>
+                            <li>telefono: ${el.telefono}</li>
+                            <li>calle: ${el.calle}</li>
+                            <li>altura: ${el.altura}</li>
+                                        `)
+        })
+        resumenDatos = true;
+    }
 /*    
     botonConfirmarCompra.on ('click', (event) => {
         event.preventDefault ()

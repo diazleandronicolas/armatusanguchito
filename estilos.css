@@ -95,6 +95,10 @@ h1 {
     height: 80vh;
 }
 
+.div__pedido--modificado {
+    display: none;
+}
+
 
 .div__radio__pan {
     width: 100%;
