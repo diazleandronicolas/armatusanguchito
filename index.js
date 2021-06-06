@@ -16,13 +16,20 @@ const arrayIngredientes = [
 ]
 
 let carrito = []
+let compraFinalizar = false;
 
-
-const listaResumen = $('.lista__pedido')
+const listaPedido = $('.lista__pedido')
+const listaTotal = $('.lista__total')
+const listaResumen = $('.lista__resumen')
 
 const botonIniciarPedido = $('#btn-iniciar')
 
 const botonCancelarProteina = $('#form__btn__proteina--atras')
+const botonCancelarVegetales = $('#form__btn__vegetales--atras')
+const botonCancelarAderezo = $('#form__btn__aderezo--atras')
+const botonCancelarTostado = $('#form__btn__tostado--atras')
+const botonCancelarDatos = $('#form__btn__datos--atras')
+const botonCancelarCompra = $('#form__btn__resumen--atras')
 
 const botonConfirmarPan = $('#form__btn__pan--siguiente')
 const botonConfirmarProteina = $('#form__btn__proteina--siguiente')
@@ -30,13 +37,14 @@ const botonConfirmarVegetales = $('#form__btn__vegetales--siguiente')
 const botonConfirmarAderezo = $('#form__btn__aderezo--siguiente')
 const botonConfirmarTostado = $('#form__btn__tostado--siguiente')
 const botonConfirmarDatos = $('#form__btn__datos--siguiente')
+const botonConfirmarCompra = $('#form__btn__resumen--siguiente')
 
 const inputNombre = $('.nombre__input')
 const inputTelefono = $('.telefono__input')
 const inputCalle = $('.calle__input')
 const inputAltura = $('.altura__input')
 
-
+let nuevoCarrito = []
 // Activando modal principal
 botonIniciarPedido.on ('click', () => {
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
@@ -44,31 +52,52 @@ botonIniciarPedido.on ('click', () => {
     elegirPan()
 })
 
+// Agregando producto elegido al carrito
+function agregarCarrito (producto) {
+    
+    carrito.push (arrayIngredientes.find (el => el.nombre === (producto)))
+
+    let lista = new Set (carrito)
+    nuevoCarrito = Array.from (lista)
+    
+    carrito = nuevoCarrito
+
+    ingredientesPedido (carrito)
+    totalPedido(carrito) 
+
+    if (compraFinalizar) {
+        resumenCompra(carrito)
+        console.log ('entro')
+    }
+}
+
 // Iterando elementos del carrito para armar la lista del pedido
 function ingredientesPedido (carrito) {
 
     carrito[carrito.length-1];{
-        listaResumen.append (`
+        listaPedido.empty()
+        listaPedido.append (`
             <li>Usted eligió ${carrito[carrito.length-1].tipo} ${carrito[carrito.length-1].nombre}</li>`)            
     }
-
-}
-
-// Agregando producto elegido al carrito
-function agregarCarrito (producto) {
-    carrito.push (arrayIngredientes.find (el => el.nombre === (producto)))
-
-    ingredientesPedido (carrito)
-    totalPedido(carrito)
 
 }
 
 // Contador del precio total
 function totalPedido (carrito) {
     let total = carrito.reduce ((acc, el) => acc += el.precio, 0)
-
-    listaResumen.append (`<p>${total}</p>`)
+    
+    listaTotal.empty()
+    listaTotal.append (`<p>${total}</p>`)
 }
+
+// Función que elimina el último ingrediente seleccionado.
+function pasoAnterior () { 
+
+    listaPedido.empty ()   
+    carrito.pop()
+
+}
+
 
 // Captando valor de radio button PAN.
 function elegirPan() {
@@ -86,25 +115,18 @@ function elegirPan() {
     })
 }
 
-function pasoAnterior () { 
-
-    listaResumen.empty ()   
-    carrito.pop()       
-
-    console.log (carrito)
-}
 
 // Captando valor de radio button PROTEINA.
 function elegirProteina () {
     botonConfirmarProteina.on ('click', (event) => {
         event.preventDefault()
-        
+
         const proteina = $('.proteina__radio:checked').val()
         
         agregarCarrito (proteina)
 
-        $('.seccion__proteina').toggleClass ('seccion__proteina--modificado')
-        $('.seccion__vegetales').toggleClass('seccion__vegetales--modificado')
+        $('.seccion__proteina').removeClass ('seccion__proteina--modificado')
+        $('.seccion__vegetales').addClass('seccion__vegetales--modificado')
         
         elegirVegetales()
     })
@@ -135,10 +157,19 @@ function elegirVegetales () {
             agregarCarrito (vegetal)
         }
 
-        $('.seccion__vegetales').toggleClass ('seccion__vegetales--modificado')
-        $('.seccion__aderezo').toggleClass ('seccion__aderezo--modificado')
+        $('.seccion__vegetales').removeClass ('seccion__vegetales--modificado')
+        $('.seccion__aderezo').addClass ('seccion__aderezo--modificado')
 
         elegirAderezo()
+    })
+
+    botonCancelarVegetales.on ('click', (event) => {
+        event.preventDefault()
+
+        $('.seccion__vegetales').removeClass('seccion__vegetales--modificado')
+        $('.seccion__proteina').addClass('seccion__proteina--modificado')
+
+        pasoAnterior()
     })
 }
 
@@ -157,11 +188,19 @@ function elegirAderezo (){
             agregarCarrito (aderezo)
         }
 
-        console.log (aderezos)
-
-        $('.seccion__aderezo').toggleClass ('seccion__aderezo--modificado')
+        $('.seccion__aderezo').removeClass ('seccion__aderezo--modificado')
         $('.seccion__tostado').addClass ('seccion__tostado--modificado')
+
         elegirTostado ()
+    })
+
+    botonCancelarAderezo.on ('click', (event) => {
+        event.preventDefault()
+
+        $('.seccion__aderezo').removeClass('seccion__aderezo--modificado')
+        $('.seccion__vegetales').addClass('seccion__vegetales--modificado')
+
+        pasoAnterior()
     })
 }
 
@@ -170,12 +209,23 @@ function elegirTostado() {
         event.preventDefault()
     
         const tostado = $('.tostado__radio:checked').val()
-    
-        $('.seccion__tostado').toggleClass ('seccion__tostado--modificado')
-        $('.seccion__datos').addClass ('seccion__datos--modificado')
-        agregarCarrito (tostado)
         
+        agregarCarrito (tostado)
+
+        $('.seccion__tostado').removeClass ('seccion__tostado--modificado')
+        $('.seccion__datos').addClass ('seccion__datos--modificado')
+        
+        compraFinalizar = true;
         completarDatos()
+    })
+
+    botonCancelarTostado.on ('click', (event) => {
+        event.preventDefault()
+
+        $('.seccion__tostado').removeClass('seccion__tostado--modificado')
+        $('.seccion__aderezo').addClass('seccion__aderezo--modificado')
+
+        pasoAnterior()
     })
 }
 
@@ -183,21 +233,83 @@ function completarDatos () {
     botonConfirmarDatos.on ('click', (event) => {
         event.preventDefault ()
 
-        const datos = []
+        const datosArray = []
+
+        function Datos (nombre, telefono, calle, altura) {
+            this.nombre = nombre;
+            this.telefono = telefono;
+            this.calle = calle;
+            this.altura = altura;
+        }
 
         const nombre = inputNombre.val()
         const telefono = inputTelefono.val()
         const calle = inputCalle.val()
         const altura = inputAltura.val()
+        
+        const datos = new Datos (nombre, telefono, calle, altura)
 
+        datosArray.push (datos)
+        console.log (datosArray)
+/* 
         const pushearDatos = (nombre, telefono, calle, altura) => {
             datos.push (nombre, telefono, calle, altura)
         }
 
-        pushearDatos (nombre, telefono, calle, altura)
+        pushearDatos (nombre, telefono, calle, altura) */
     
-        $('.seccion__datos').toggleClass ('seccion__datos--modificado')
+        $('.seccion__datos').removeClass ('seccion__datos--modificado')
         $('.seccion__resumen').addClass ('seccion__resumen--modificado')
 
+        //resumenCompra(datosArray)
+        console.log (carrito)
+
+        
+
     })
+
+    botonCancelarDatos.on ('click', (event) => {
+        event.preventDefault()
+
+        $('.seccion__datos').removeClass ('seccion__datos--modificado')
+        $('.seccion__tostado').addClass ('seccion__tostado--modificado')
+
+        pasoAnterior()
+    })
+}
+
+function resumenCompra (datos) {
+
+    datos.forEach ((el) => {
+        listaResumen.append (`<li>${el.tipo} ${el.nombre}</li>`)
+        
+    })
+
+/*     datos.forEach ((el) => {
+        listaResumen.append (`
+                        <li>nombre: ${el.nombre}</li>`)
+    }) */
+/*     datos.forEach( (el) => {
+
+        listaResumen.append (`
+                        <li>nombre: ${el.nombre}</li>
+                        <li>telefono: ${el.telefono}</li>
+                        <li>calle: ${el.calle}</li>
+                        <li>altura: ${el.altura}</li>
+                                    `)
+    }) */
+/*    
+    botonConfirmarCompra.on ('click', (event) => {
+        event.preventDefault ()
+
+
+    })
+
+    botonCancelarCompra.on ('click', (event) => {
+        event.preventDefault()
+        $('.seccion__resumen').removeClass ('seccion__resumen--modificado')
+        $('.seccion__datos').addClass ('seccion__datos--modificado')
+
+        pasoAnterior()
+    }) */
 }
