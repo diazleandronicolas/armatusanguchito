@@ -48,11 +48,33 @@ const inputTelefono = $('.telefono__input')
 const inputCalle = $('.calle__input')
 const inputAltura = $('.altura__input')
 
+const cerrarModal = $('.div__cerrar')
+
 // Activando modal principal
 botonIniciarPedido.on ('click', () => {
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
+    $('.div__pedido').toggleClass ('div__pedido--modificado')
 
     elegirPan()
+})
+
+cerrarModal.on ('click', () => {
+
+    carrito = []
+    nuevoCarrito = []
+    listaPedido.empty()
+    listaResumen.empty()
+    listaTotal.empty()
+
+    $('.div__pedido').toggleClass ('div__pedido--modificado')
+    $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
+    $('.seccion__pan').removeClass('seccion__pan--modificado')
+    $('.seccion__proteina').removeClass('seccion__proteina--modificado')
+    $('.seccion__vegetales').removeClass('seccion__vegetales--modificado')
+    $('.seccion__aderezo').removeClass('seccion__aderezo--modificado')
+    $('.seccion__tostado').removeClass('seccion__tostado--modificado')
+    $('.seccion__datos').removeClass('seccion__datos--modificado')
+    $('.seccion__resumen').removeClass('seccion__resumen--modificado')
 })
 
 // Agregando producto elegido al carrito
@@ -60,18 +82,13 @@ function agregarCarrito (producto) {
     
     carrito.push (arrayIngredientes.find (el => el.nombre === (producto)))
 
-    console.log (carrito)
-
     let lista = new Set (carrito)
-    let carritoMejorado = Array.from (lista)
+    let carritoLista = Array.from (lista)
     
-    nuevoCarrito = carritoMejorado
-
-    console.log (nuevoCarrito)
+    nuevoCarrito = carritoLista
 
     ingredientesPedido (nuevoCarrito)
     totalPedido(nuevoCarrito) 
-
 }
 
 // Iterando elementos del carrito para armar la lista del pedido
@@ -107,13 +124,18 @@ function elegirPan() {
         event.preventDefault()
     
         const pan = $('.pan__radio:checked').val()
-    
-        agregarCarrito (pan)        
-    
-        $('.seccion__pan').addClass ('seccion__pan--modificado')
-        $('.seccion__proteina').addClass ('seccion__proteina--modificado')
 
-        elegirProteina ()
+        if (pan) {
+
+            agregarCarrito (pan)        
+        
+            $('.seccion__pan').addClass ('seccion__pan--modificado')
+            $('.seccion__proteina').addClass ('seccion__proteina--modificado')
+
+            elegirProteina ()
+        } else {
+            alert ('elija una opción para continuar')
+        }
     })
 }
 
