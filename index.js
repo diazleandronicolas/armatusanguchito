@@ -337,8 +337,8 @@ function resumenCompra (datos) {
 
         nuevoCarrito.forEach( (el) => {
             listaResumen.append (`<li>${el.tipo} ${el.nombre}</li>`)
-            resumenCarrito= true;
         })
+        resumenCarrito= true;
     }
 
     if (!resumenDatos){
