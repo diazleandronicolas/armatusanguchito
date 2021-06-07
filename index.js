@@ -11,8 +11,9 @@ const arrayIngredientes = [
     { id: 10, tipo: 'aderezo', nombre: 'mayonesa', precio: 50},
     { id: 11, tipo: 'aderezo', nombre: 'barbacoa', precio: 70},
     { id: 12, tipo: 'aderezo', nombre: 'picante', precio: 70},
-    { id: 13, tipo: 'tostado', nombre: 'tostado', precio: 0},
-    { id: 14, tipo: 'tostado', nombre: 'sin tostar', precio: 0},
+    { id: 13, tipo: 'extra', nombre: 'huevo', precio: 70},
+    { id: 14, tipo: 'extra', nombre: 'bacon', precio: 70},
+    { id: 15, tipo: 'extra', nombre: 'queso', precio: 70},
 ]
 
 
@@ -31,7 +32,7 @@ const botonIniciarPedido = $('#btn-iniciar')
 const botonCancelarProteina = $('#form__btn__proteina--atras')
 const botonCancelarVegetales = $('#form__btn__vegetales--atras')
 const botonCancelarAderezo = $('#form__btn__aderezo--atras')
-const botonCancelarTostado = $('#form__btn__tostado--atras')
+const botonCancelarExtra = $('#form__btn__extra--atras')
 const botonCancelarDatos = $('#form__btn__datos--atras')
 const botonCancelarCompra = $('#form__btn__resumen--atras')
 
@@ -39,7 +40,7 @@ const botonConfirmarPan = $('#form__btn__pan--siguiente')
 const botonConfirmarProteina = $('#form__btn__proteina--siguiente')
 const botonConfirmarVegetales = $('#form__btn__vegetales--siguiente')
 const botonConfirmarAderezo = $('#form__btn__aderezo--siguiente')
-const botonConfirmarTostado = $('#form__btn__tostado--siguiente')
+const botonConfirmarExtra = $('#form__btn__extra--siguiente')
 const botonConfirmarDatos = $('#form__btn__datos--siguiente')
 const botonConfirmarCompra = $('#form__btn__resumen--siguiente')
 
@@ -78,7 +79,7 @@ cerrarModal.on ('click', () => {
     $('.seccion__proteina').removeClass('seccion__proteina--modificado')
     $('.seccion__vegetales').removeClass('seccion__vegetales--modificado')
     $('.seccion__aderezo').removeClass('seccion__aderezo--modificado')
-    $('.seccion__tostado').removeClass('seccion__tostado--modificado')
+    $('.seccion__extra').removeClass('seccion__extra--modificado')
     $('.seccion__datos').removeClass('seccion__datos--modificado')
     $('.seccion__resumen').removeClass('seccion__resumen--modificado')
 })
@@ -235,9 +236,9 @@ function elegirAderezo (){
         if (aderezos.length > 0) {
     
             $('.seccion__aderezo').removeClass ('seccion__aderezo--modificado')
-            $('.seccion__tostado').addClass ('seccion__tostado--modificado')
+            $('.seccion__extra').addClass ('seccion__extra--modificado')
     
-            elegirTostado ()
+            elegirExtra ()
 
         } else {
 
@@ -255,17 +256,24 @@ function elegirAderezo (){
     })
 }
 
-function elegirTostado() {
-    botonConfirmarTostado.on ('click', (event)=> {
+function elegirExtra() {
+    botonConfirmarExtra.on ('click', (event)=> {
         event.preventDefault()
     
-        const tostado = $('.tostado__radio:checked').val()
+        const extras = []
         
-        if (tostado) {
+        $(".extra__checkbox:checkbox:checked").each(function() {
+            const extrasCheckbox = $(this).val()
+            extras.push (extrasCheckbox)
+        })
+
+        for (let extra of extras) {
+            agregarCarrito (extra)
+        }
+
+        if (extras.length > 0) {
             
-            agregarCarrito (tostado)
-    
-            $('.seccion__tostado').removeClass ('seccion__tostado--modificado')
+            $('.seccion__extra').removeClass ('seccion__extra--modificado')
             $('.seccion__datos').addClass ('seccion__datos--modificado')
             
             completarDatos()
@@ -275,10 +283,10 @@ function elegirTostado() {
         }
     })
 
-    botonCancelarTostado.on ('click', (event) => {
+    botonCancelarExtra.on ('click', (event) => {
         event.preventDefault()
 
-        $('.seccion__tostado').removeClass('seccion__tostado--modificado')
+        $('.seccion__extra').removeClass('seccion__extra--modificado')
         $('.seccion__aderezo').addClass('seccion__aderezo--modificado')
 
         pasoAnterior()
@@ -325,7 +333,7 @@ function completarDatos () {
         event.preventDefault()
 
         $('.seccion__datos').removeClass ('seccion__datos--modificado')
-        $('.seccion__tostado').addClass ('seccion__tostado--modificado')
+        $('.seccion__extra').addClass ('seccion__extra--modificado')
 
         pasoAnterior()
     })
@@ -338,7 +346,7 @@ function resumenCompra (datos) {
         nuevoCarrito.forEach( (el) => {
             listaResumen.append (`<li>${el.tipo} ${el.nombre}</li>`)
         })
-        resumenCarrito= true;
+        resumenCarrito = true;
     }
 
     if (!resumenDatos){

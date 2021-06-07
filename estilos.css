@@ -68,7 +68,7 @@ h1 {
 .seccion__proteina,
 .seccion__vegetales,
 .seccion__aderezo,
-.seccion__tostado,
+.seccion__extra,
 .seccion__datos {
     width: 100%;
     height: 80vh;
@@ -127,7 +127,7 @@ h1 {
 .seccion__proteina--modificado,
 .seccion__vegetales--modificado,
 .seccion__aderezo--modificado,
-.seccion__tostado--modificado,
+.seccion__extra--modificado,
 .seccion__datos--modificado,
 .seccion__resumen--modifcado {
     display: flex;
