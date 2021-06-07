@@ -52,8 +52,11 @@ const cerrarModal = $('.div__cerrar')
 
 // Activando modal principal
 botonIniciarPedido.on ('click', () => {
+    $('.modal__piola').toggleClass ('modal__piola--modificado')
+
+
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
-    $('.div__pedido').toggleClass ('div__pedido--modificado')
+    $('.div__pedido--modificado').toggleClass ('div__pedido')
 
     elegirPan()
 })
@@ -66,7 +69,10 @@ cerrarModal.on ('click', () => {
     listaResumen.empty()
     listaTotal.empty()
 
-    $('.div__pedido').toggleClass ('div__pedido--modificado')
+    $('.modal__piola').toggleClass ('modal__piola--modificado')
+
+
+    $('.div__pedido--modificado').toggleClass ('div__pedido')
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
     $('.seccion__pan').removeClass('seccion__pan--modificado')
     $('.seccion__proteina').removeClass('seccion__proteina--modificado')
@@ -146,13 +152,18 @@ function elegirProteina () {
         event.preventDefault()
 
         const proteina = $('.proteina__radio:checked').val()
-        
-        agregarCarrito (proteina)
 
-        $('.seccion__proteina').removeClass ('seccion__proteina--modificado')
-        $('.seccion__vegetales').addClass('seccion__vegetales--modificado')
-        
-        elegirVegetales()
+        if (proteina) {
+
+            agregarCarrito (proteina)
+    
+            $('.seccion__proteina').removeClass ('seccion__proteina--modificado')
+            $('.seccion__vegetales').addClass('seccion__vegetales--modificado')
+            
+            elegirVegetales()
+        } else {
+            alert ('elija una opción para continuar')
+        }
     })
 
     botonCancelarProteina.on ('click', (event) => {
@@ -182,10 +193,17 @@ function elegirVegetales () {
             agregarCarrito (vegetal)
         }
 
-        $('.seccion__vegetales').removeClass ('seccion__vegetales--modificado')
-        $('.seccion__aderezo').addClass ('seccion__aderezo--modificado')
+        if (vegetales.length > 0) {
+            
+                $('.seccion__vegetales').removeClass ('seccion__vegetales--modificado')
+                $('.seccion__aderezo').addClass ('seccion__aderezo--modificado')
+        
+                elegirAderezo()
 
-        elegirAderezo()
+        } else {
+            alert ('elija una opción para continuar')
+        }
+
     })
 
     botonCancelarVegetales.on ('click', (event) => {
@@ -214,10 +232,17 @@ function elegirAderezo (){
             agregarCarrito (aderezo)
         }
 
-        $('.seccion__aderezo').removeClass ('seccion__aderezo--modificado')
-        $('.seccion__tostado').addClass ('seccion__tostado--modificado')
+        if (aderezos.length > 0) {
+    
+            $('.seccion__aderezo').removeClass ('seccion__aderezo--modificado')
+            $('.seccion__tostado').addClass ('seccion__tostado--modificado')
+    
+            elegirTostado ()
 
-        elegirTostado ()
+        } else {
+
+            alert ('elija una opción para continuar')
+        }
     })
 
     botonCancelarAderezo.on ('click', (event) => {
@@ -236,13 +261,18 @@ function elegirTostado() {
     
         const tostado = $('.tostado__radio:checked').val()
         
-        agregarCarrito (tostado)
+        if (tostado) {
+            
+            agregarCarrito (tostado)
+    
+            $('.seccion__tostado').removeClass ('seccion__tostado--modificado')
+            $('.seccion__datos').addClass ('seccion__datos--modificado')
+            
+            completarDatos()
 
-        $('.seccion__tostado').removeClass ('seccion__tostado--modificado')
-        $('.seccion__datos').addClass ('seccion__datos--modificado')
-        
-        
-        completarDatos()
+        } else {
+            alert ('elija una opción para continuar')
+        }
     })
 
     botonCancelarTostado.on ('click', (event) => {
@@ -271,18 +301,23 @@ function completarDatos () {
         const calle = inputCalle.val()
         const altura = inputAltura.val()
         
-        const datos = new Datos (nombre, telefono, calle, altura)
-
-        const datosArray = []
-        datosArray.push (datos)
+        if (nombre.length > 0 && telefono.length > 0 && calle.length > 0 && altura.length > 0) {
+            
+            const datos = new Datos (nombre, telefono, calle, altura)
     
-        $('.seccion__datos').removeClass ('seccion__datos--modificado')
-        $('.seccion__resumen').addClass ('seccion__resumen--modificado')
-
-        $('.div__pedido').addClass ('div__pedido--modificado')
-
-        resumenCompra(datosArray)
+            const datosArray = []
+            datosArray.push (datos)
         
+            $('.seccion__datos').removeClass ('seccion__datos--modificado')
+            $('.seccion__resumen').addClass ('seccion__resumen--modificado')
+    
+            $('.div__pedido').toggleClass ('div__pedido--modificado')
+    
+            resumenCompra(datosArray)
+
+        } else {
+            alert ('revise los campos')
+        }
 
     })
 

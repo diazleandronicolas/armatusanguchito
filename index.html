@@ -22,126 +22,128 @@
 
 
     <!---MODAL CONTENEDOR---->
-
-    <div class="div__pedido">
-        <h3>Pedido:</h3>
-        <ol class="lista__pedido"></ol>
-        <ol class="lista__total"></ol>
-    </div>
-    
-    <div class="modal__contenedor ">
-        <button class="div__cerrar">
-            <p>
-                X
-            </p>
-        </button>
-    <!-- <div class="div__cerrar"><p>X</p></div> -->
-        <section class="seccion__pan">
-            <h3>Elegí el pan</h3>
-            <form id="form__btn__pan" action="">
-                <div class="div__radio__pan">
-                    <input class="pan__radio" type="radio" name="pan" value="blanco"> Blanco
-                    <input class="pan__radio" type="radio" name="pan" value="negro"> Negro
-                    <input class="pan__radio" type="radio" name="pan" value="parmesano"> Parmesano
-                </div>
-                <div class="div__btn__pan">
-                    <button id="form__btn__pan--atras">Cancelar</button>
-                    <button id="form__btn__pan--siguiente">Siguiente</button>
-                </div>
-            </form>
-        </section>
-
-
-
-        <!----ELEGIR LA PROTEINA---->
-        <section class="seccion__proteina">
-            <h3>2. Elegí la proteina</h3>
-            <form id="form__btn__proteina" action="">
-                <div class="div__proteina">
-                    <input class="proteina__radio" type="radio" name="proteina" value="lomo"> Lomo
-                    <input class="proteina__radio" type="radio" name="proteina" value="pollo"> Pollo
-                    <input class="proteina__radio" type="radio" name="proteina" value="tofu"> Tofu
-                </div>
-                <div class="div__btn__proteina">
-                    <button id="form__btn__proteina--atras">Cancelar</button>
-                    <button id="form__btn__proteina--siguiente">Siguiente</button>
-                </div>
-            </form>
-        </section>
+    <div class="modal__piola">
         
-        <section class="seccion__vegetales">
-            <h3>3. Elegí los vegetales</h3>
-            <form id="form__btn__vegetales" action="">
-                <div class="div__vegetales">
-                    <input class="vegetales__checkbox" type="checkbox" value="tomate"> Tomate
-                    <input class="vegetales__checkbox" type="checkbox" value="lechuga"> Lechuga
-                    <input class="vegetales__checkbox" type="checkbox" value="rucula"> Rucula
-                </div>
-                <div class="div__btn__vegetales">
-                    <button id="form__btn__vegetales--atras">Cancelar</button>
-                    <button id="form__btn__vegetales--siguiente">Siguiente</button>
-                </div>
-            </form>
-        </section>
+        <div class="div__pedido">
+            <h3>Pedido:</h3>
+            <ol class="lista__pedido"></ol>
+            <ol class="lista__total"></ol>
+
+            <button class="div__cerrar">
+                <p>
+                    X
+                </p>
+            </button>
+        </div>
         
-        <section class="seccion__aderezo">
-            <h3>4. Elegí el aderezo</h3>
-            <form action="" id="form__btn__aderezo">
-                <div class="div__aderezo">
-                    <input class="aderezo__checkbox" type="checkbox" name="aderezo" value="mayonesa"> Mayonesa
-                    <input class="aderezo__checkbox" type="checkbox" name="aderezo" value="barbacoa"> Barbacoa
-                    <input class="aderezo__checkbox" type="checkbox" name="aderezo" value="picante"> Picante
-                </div>
-                <div class="div__btn__aderezo">
-                    <button id="form__btn__aderezo--atras">Cancelar</button>
-                    <button id="form__btn__aderezo--siguiente">Siguiente</button>
-                </div>
-            </form>
-        </section>
-        
+        <div class="modal__contenedor ">
+        <!-- <div class="div__cerrar"><p>X</p></div> -->
+            <section class="seccion__pan">
+                <h3>Elegí el pan</h3>
+                <form id="form__btn__pan" action="">
+                    <div class="div__radio__pan">
+                        <input class="pan__radio" type="radio" name="pan" value="blanco"> Blanco
+                        <input class="pan__radio" type="radio" name="pan" value="negro"> Negro
+                        <input class="pan__radio" type="radio" name="pan" value="parmesano"> Parmesano
+                    </div>
+                    <div class="div__btn__pan">
+                        <button id="form__btn__pan--atras">Cancelar</button>
+                        <button id="form__btn__pan--siguiente">Siguiente</button>
+                    </div>
+                </form>
+            </section>
+
+            <!----ELEGIR LA PROTEINA---->
+            <section class="seccion__proteina">
+                <h3>2. Elegí la proteina</h3>
+                <form id="form__btn__proteina" action="">
+                    <div class="div__proteina">
+                        <input class="proteina__radio" type="radio" name="proteina" value="lomo"> Lomo
+                        <input class="proteina__radio" type="radio" name="proteina" value="pollo"> Pollo
+                        <input class="proteina__radio" type="radio" name="proteina" value="tofu"> Tofu
+                    </div>
+                    <div class="div__btn__proteina">
+                        <button id="form__btn__proteina--atras">Cancelar</button>
+                        <button id="form__btn__proteina--siguiente">Siguiente</button>
+                    </div>
+                </form>
+            </section>
             
-        <section class="seccion__tostado">
-            <h3>5. ¿Lo querés tostado?</h3>
-            <form action="" id="form__btn__tostado">
-                <div class="div__tostado">
-                    <input class="tostado__radio" type="radio" name="tostado" value="tostado"> Tostado
-                    <input class="tostado__radio" type="radio" name="tostado" value="sin tostar"> Sin tostar
-                </div>
-                <div class="div__btn__tostado">
-                    <button id="form__btn__tostado--atras">Cancelar</button>
-                    <button id="form__btn__tostado--siguiente">Siguiente</button>
-                </div>
-            </form>
-        </section>
-        
-        <section class="seccion__datos">
-            <h3>¿Para quién es el pedido?</h3>
-            <form action="" id="form__btn__datos">
-                <div class="div__datos">
-                    <input class="nombre__input" type="text" placeholder="Nombre" id="">
-                    <input class="telefono__input" type="text" placeholder="Telefono" id="">
-                    <input type="text" class="calle__input" placeholder="Calle">
-                    <input type="text" class="altura__input" placeholder="Altura">
-                </div>
-                <div class="div__btn__datos">
-                    <button id="form__btn__datos--atras">Cancelar</button>
-                    <button id="form__btn__datos--siguiente">Confirmar</button>
-                </div>
-            </form>
-        </section>
+            <section class="seccion__vegetales">
+                <h3>3. Elegí los vegetales</h3>
+                <form id="form__btn__vegetales" action="">
+                    <div class="div__vegetales">
+                        <input class="vegetales__checkbox" type="checkbox" value="tomate"> Tomate
+                        <input class="vegetales__checkbox" type="checkbox" value="lechuga"> Lechuga
+                        <input class="vegetales__checkbox" type="checkbox" value="rucula"> Rucula
+                    </div>
+                    <div class="div__btn__vegetales">
+                        <button id="form__btn__vegetales--atras">Cancelar</button>
+                        <button id="form__btn__vegetales--siguiente">Siguiente</button>
+                    </div>
+                </form>
+            </section>
+            
+            <section class="seccion__aderezo">
+                <h3>4. Elegí el aderezo</h3>
+                <form action="" id="form__btn__aderezo">
+                    <div class="div__aderezo">
+                        <input class="aderezo__checkbox" type="checkbox" name="aderezo" value="mayonesa"> Mayonesa
+                        <input class="aderezo__checkbox" type="checkbox" name="aderezo" value="barbacoa"> Barbacoa
+                        <input class="aderezo__checkbox" type="checkbox" name="aderezo" value="picante"> Picante
+                    </div>
+                    <div class="div__btn__aderezo">
+                        <button id="form__btn__aderezo--atras">Cancelar</button>
+                        <button id="form__btn__aderezo--siguiente">Siguiente</button>
+                    </div>
+                </form>
+            </section>
+            
+                
+            <section class="seccion__tostado">
+                <h3>5. ¿Lo querés tostado?</h3>
+                <form action="" id="form__btn__tostado">
+                    <div class="div__tostado">
+                        <input class="tostado__radio" type="radio" name="tostado" value="tostado"> Tostado
+                        <input class="tostado__radio" type="radio" name="tostado" value="sin tostar"> Sin tostar
+                    </div>
+                    <div class="div__btn__tostado">
+                        <button id="form__btn__tostado--atras">Cancelar</button>
+                        <button id="form__btn__tostado--siguiente">Siguiente</button>
+                    </div>
+                </form>
+            </section>
+            
+            <section class="seccion__datos">
+                <h3>¿Para quién es el pedido?</h3>
+                <form action="" id="form__btn__datos">
+                    <div class="div__datos">
+                        <input class="nombre__input" type="text" placeholder="Nombre" id="">
+                        <input class="telefono__input" type="text" placeholder="Telefono" id="">
+                        <input type="text" class="calle__input" placeholder="Calle">
+                        <input type="text" class="altura__input" placeholder="Altura">
+                    </div>
+                    <div class="div__btn__datos">
+                        <button id="form__btn__datos--atras">Cancelar</button>
+                        <button id="form__btn__datos--siguiente">Confirmar</button>
+                    </div>
+                </form>
+            </section>
 
-        <section class="seccion__resumen">
-            <div class="div__resumen">
-                <h3>Resumen de compra:</h3>
-                <ul class="lista__resumen"></ul>
-            </div>
-            <form action="" id="form__btn__resumen">
-                <div class="div__btn__resumen">
-                    <button id="form__btn__resumen--atras">Atrás</button>
-                    <button id="form__btn__resumen--siguiente">Finalizar Compra</button>
+            <section class="seccion__resumen">
+                <div class="div__resumen">
+                    <h3>Resumen de compra:</h3>
+                    <ul class="lista__resumen"></ul>
                 </div>
-            </form>
-        </section>
+                <form action="" id="form__btn__resumen">
+                    <div class="div__btn__resumen">
+                        <button id="form__btn__resumen--atras">Atrás</button>
+                        <button id="form__btn__resumen--siguiente">Finalizar Compra</button>
+                    </div>
+                </form>
+            </section>
+
+        </div>
 
     </div>
         
