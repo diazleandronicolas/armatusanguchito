@@ -16,7 +16,6 @@ const arrayIngredientes = [
     { id: 15, tipo: 'extra', nombre: 'queso', precio: 70},
 ]
 
-
 let resumenCarrito = false;
 let resumenDatos = false;
 
@@ -71,7 +70,6 @@ cerrarModal.on ('click', () => {
     listaTotal.empty()
 
     $('.modal__piola').toggleClass ('modal__piola--modificado')
-
 
     $('.div__pedido--modificado').toggleClass ('div__pedido')
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
@@ -361,9 +359,10 @@ function resumenCompra (datos) {
         })
         resumenDatos = true;
     }
-/*    
+    
     botonConfirmarCompra.on ('click', (event) => {
         event.preventDefault ()
+
 
 
     })
@@ -374,5 +373,5 @@ function resumenCompra (datos) {
         $('.seccion__datos').addClass ('seccion__datos--modificado')
 
         pasoAnterior()
-    }) */
+    })
 }
