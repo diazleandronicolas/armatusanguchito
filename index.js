@@ -71,15 +71,15 @@ cerrarModal.on ('click', () => {
 
     $('.modal__contenedor').removeClass ('modal__contenedor--modificado')
 
-/*     $('.div__pedido--modificado').toggleClass ('div__pedido') */
-/*     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
+    $('.div__pedido--modificado').toggleClass ('div__pedido')
+    $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
     $('.seccion__pan').removeClass('seccion__pan--modificado')
     $('.seccion__proteina').removeClass('seccion__proteina--modificado')
     $('.seccion__vegetales').removeClass('seccion__vegetales--modificado')
     $('.seccion__aderezo').removeClass('seccion__aderezo--modificado')
     $('.seccion__extra').removeClass('seccion__extra--modificado')
     $('.seccion__datos').removeClass('seccion__datos--modificado')
-    $('.seccion__resumen').removeClass('seccion__resumen--modificado') */
+    $('.seccion__resumen').removeClass('seccion__resumen--modificado')
 })
 
 // Agregando producto elegido al carrito
