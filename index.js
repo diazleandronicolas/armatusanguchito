@@ -52,11 +52,13 @@ const cerrarModal = $('.div__cerrar')
 
 // Activando modal principal
 botonIniciarPedido.on ('click', () => {
-    $('.modal__piola').toggleClass ('modal__piola--modificado')
+    $('.modal__piola').addClass ('modal__piola--modificado')
 
 
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
     $('.div__pedido--modificado').toggleClass ('div__pedido')
+
+    $('.div__pedido__img--3').toggleClass('div__pedido__img--3__modificado')
 
     elegirPan()
 })
@@ -69,7 +71,7 @@ cerrarModal.on ('click', () => {
     listaResumen.empty()
     listaTotal.empty()
 
-    $('.modal__piola').toggleClass ('modal__piola--modificado')
+    $('.modal__piola').removeClass ('modal__piola--modificado')
 
     $('.div__pedido--modificado').toggleClass ('div__pedido')
     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
@@ -137,6 +139,9 @@ function elegirPan() {
             $('.seccion__pan').addClass ('seccion__pan--modificado')
             $('.seccion__proteina').addClass ('seccion__proteina--modificado')
 
+            $('.div__pedido__img--4').addClass('div__pedido__img--4__modificado')
+            $('.div__pedido__img--3').removeClass ('div__pedido__img--3__modificado')
+
             elegirProteina ()
         } else {
             alert ('elija una opción para continuar')
@@ -158,6 +163,9 @@ function elegirProteina () {
     
             $('.seccion__proteina').removeClass ('seccion__proteina--modificado')
             $('.seccion__vegetales').addClass('seccion__vegetales--modificado')
+
+            $('.div__pedido__img--4').removeClass('div__pedido__img--4__modificado')
+            $('.div__pedido__img--5').addClass('div__pedido__img--5__modificado')
             
             elegirVegetales()
         } else {
@@ -170,6 +178,9 @@ function elegirProteina () {
 
         $('.seccion__proteina').removeClass('seccion__proteina--modificado')
         $('.seccion__pan').removeClass('seccion__pan--modificado')
+
+        $('.div__pedido__img--4').removeClass('div__pedido__img--4__modificado')
+        $('.div__pedido__img--3').addClass ('div__pedido__img--3__modificado')
 
         pasoAnterior()
         
@@ -197,6 +208,9 @@ function elegirVegetales () {
                 $('.seccion__vegetales').removeClass ('seccion__vegetales--modificado')
                 $('.seccion__aderezo').addClass ('seccion__aderezo--modificado')
         
+                $('.div__pedido__img--5').removeClass('div__pedido__img--5__modificado')
+                $('.div__pedido__img--6').addClass('div__pedido__img--6__modificado')
+
                 elegirAderezo()
 
         } else {
@@ -211,6 +225,8 @@ function elegirVegetales () {
         $('.seccion__vegetales').removeClass('seccion__vegetales--modificado')
         $('.seccion__proteina').addClass('seccion__proteina--modificado')
 
+        $('.div__pedido__img--5').removeClass('div__pedido__img--5__modificado')
+        $('.div__pedido__img--4').addClass('div__pedido__img--4__modificado')
         pasoAnterior()
         
     })
@@ -236,6 +252,9 @@ function elegirAderezo (){
             $('.seccion__aderezo').removeClass ('seccion__aderezo--modificado')
             $('.seccion__extra').addClass ('seccion__extra--modificado')
     
+            $('.div__pedido__img--6').removeClass('div__pedido__img--6__modificado')
+            $('.div__pedido__img--7').addClass('div__pedido__img--7__modificado')
+
             elegirExtra ()
 
         } else {
@@ -249,6 +268,9 @@ function elegirAderezo (){
 
         $('.seccion__aderezo').removeClass('seccion__aderezo--modificado')
         $('.seccion__vegetales').addClass('seccion__vegetales--modificado')
+
+        $('.div__pedido__img--6').removeClass('div__pedido__img--6__modificado')
+        $('.div__pedido__img--5').addClass('div__pedido__img--5__modificado')
 
         pasoAnterior()
     })
@@ -274,6 +296,9 @@ function elegirExtra() {
             $('.seccion__extra').removeClass ('seccion__extra--modificado')
             $('.seccion__datos').addClass ('seccion__datos--modificado')
             
+            $('.div__pedido__img--7').removeClass('div__pedido__img--7__modificado')
+            $('.div__pedido__img--8').addClass('div__pedido__img--8__modificado')
+
             completarDatos()
 
         } else {
@@ -286,6 +311,9 @@ function elegirExtra() {
 
         $('.seccion__extra').removeClass('seccion__extra--modificado')
         $('.seccion__aderezo').addClass('seccion__aderezo--modificado')
+
+        $('.div__pedido__img--7').removeClass('div__pedido__img--7__modificado')
+        $('.div__pedido__img--6').addClass('div__pedido__img--6__modificado')
 
         pasoAnterior()
     })
@@ -363,12 +391,13 @@ function resumenCompra (datos) {
     botonConfirmarCompra.on ('click', (event) => {
         event.preventDefault ()
 
-
-
+        $('.seccion__finalizado').addClass ('seccion__finalizado--modificado')
+        $('.seccion__resumen').removeClass('seccion__resumen--modificado')
     })
 
     botonCancelarCompra.on ('click', (event) => {
         event.preventDefault()
+
         $('.seccion__resumen').removeClass ('seccion__resumen--modificado')
         $('.seccion__datos').addClass ('seccion__datos--modificado')
 
