@@ -75,7 +75,7 @@ h3 {
     height: 100vh;
 }
 
-/* .modal__piola {
+.modal__piola {
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -89,7 +89,7 @@ h3 {
 .modal__piola--modificado {
     display: flex;
     visibility: visible;
-} */
+}
 
 .modal__contenedor {
     width: 100%;
@@ -144,10 +144,13 @@ h3 {
     position: absolute;
     right: 0px;
     height: 100vh;
+    display: none;
+    visibility: hidden;
 }
 
 .div__pedido--modificado {
-    display: none;
+    display: flex;
+    visibility: visible;
 }
 
 

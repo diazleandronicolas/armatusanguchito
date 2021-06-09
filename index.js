@@ -53,9 +53,11 @@ const cerrarModal = $('.div__cerrar')
 // Activando modal principal
 botonIniciarPedido.on ('click', () => {
 
+    $('.modal__piola').addClass('modal__piola--modificado')
+
     $('.modal__contenedor').addClass('modal__contenedor--modificado')
 
-    $('.div__pedido--modificado').toggleClass ('div__pedido')
+    $('.div__pedido').addClass ('div__pedido--modificado')
     $('.div__pedido__img--3').toggleClass('div__pedido__img--3__modificado')
 
     elegirPan()
@@ -190,6 +192,7 @@ function elegirVegetales () {
     botonConfirmarVegetales.on ('click', (event) => {
         event.preventDefault ()
 
+        console.log ('EGETAL')
         const vegetales = []
 
         $(".vegetales__checkbox:checkbox:checked").each(function() {
