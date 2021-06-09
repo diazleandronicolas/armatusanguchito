@@ -52,12 +52,10 @@ const cerrarModal = $('.div__cerrar')
 
 // Activando modal principal
 botonIniciarPedido.on ('click', () => {
-    $('.modal__piola').addClass ('modal__piola--modificado')
 
+    $('.modal__contenedor').addClass('modal__contenedor--modificado')
 
-/*     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado') */
     $('.div__pedido--modificado').toggleClass ('div__pedido')
-
     $('.div__pedido__img--3').toggleClass('div__pedido__img--3__modificado')
 
     elegirPan()
@@ -71,7 +69,7 @@ cerrarModal.on ('click', () => {
     listaResumen.empty()
     listaTotal.empty()
 
-    $('.modal__piola').removeClass ('modal__piola--modificado')
+    $('.modal__contenedor').removeClass ('modal__contenedor--modificado')
 
 /*     $('.div__pedido--modificado').toggleClass ('div__pedido') */
 /*     $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
