@@ -52,7 +52,7 @@ const inputAltura = $('.altura__input')
 
 const cerrarModal = $('.div__cerrar')
 
-// Activando modal principal
+// Activar modal principal
 botonIniciarPedido.on ('click', () => {
 
     $('.modal__contenedor').addClass('modal__contenedor--modificado')
@@ -63,6 +63,7 @@ botonIniciarPedido.on ('click', () => {
     elegirPan()
 })
 
+// Cerrar el modal principal
 cerrarModal.on ('click', () => {
 
     carrito = []
@@ -88,6 +89,12 @@ cerrarModal.on ('click', () => {
     $('.seccion__extra').removeClass('seccion__extra--modificado')
     $('.seccion__datos').removeClass('seccion__datos--modificado')
     $('.seccion__resumen').removeClass('seccion__resumen--modificado') 
+    $('.seccion__finalizado').removeClass ('seccion__finalizado--modificado')
+
+    $('.lista__subtotal').removeClass ('lista__subtotal--modificado')
+    $('.lista__total').removeClass ('lista__total--modificado')
+    $('.lista__datos').removeClass ('lista__datos--modificado')
+
 })
 
 // Agregando producto elegido al carrito
@@ -404,13 +411,15 @@ function resumenCompra (datos) {
         $('.seccion__resumen').removeClass('seccion__resumen--modificado')
 
         $('.div__pedido__img--8').removeClass('div__pedido__img--8__modificado')
-        $('.div__pedido__img--7').addClass('div__pedido__img--7__modificado')
+        $('.div__pedido__img--9').addClass('div__pedido__img--9__modificado')
 
         $('.lista__resumen').removeClass ('lista__resumen--modificado')
         $('.lista__datos').removeClass ('lista__datos--modificado')
 
         $('.lista__total').removeClass('lista__total--modificado')
-        $('.lista__subtotal').removeClass ('lista__subtotal--modificado')
+
+        $('.lista__finales').addClass ('lista__finales--modificado')
+
     })
 
     botonCancelarCompra.on ('click', (event) => {

@@ -7,10 +7,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@600&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
-    <title>Document</title>
+    <title>Armá tu sanguchito</title>
 </head>
 <body>
 
+
+    <!---Pantalla principal---->
     <section class="seccion__principal">
 
         <div class="iniciar__compra">
@@ -27,10 +29,10 @@
     </section>
 
 
-    <!---MODAL CONTENEDOR---->
-
+    <!---Modal principal---->
     <div class="modal__contenedor ">
-        <!-- <div class="div__cerrar"><p>X</p></div> -->
+
+        <!---Información del pedido---->
         <div class="div__pedido">
 
             <img class="div__pedido__img--3" src="imagenes/sanguche-3.png" alt="">
@@ -41,7 +43,7 @@
             <img class="div__pedido__img--8" src="imagenes/sanguche-8.png" alt="">
             <img class="div__pedido__img--9" src="imagenes/sanguche-9.png" alt="">
             
-            <ol class="lista__subtotal"></ol>
+            <div class="lista__subtotal"></div>
             
             <div class="lista__finales"> 
                 <div class="lista__resumen">
@@ -53,14 +55,14 @@
                 <ol class="lista__total"></ol>
             </div>
 
-            <button class="div__cerrar">
-                <p>
+            <button type="reset" class="div__cerrar">
+<!--                 <p>
                     X
-                </p>
+                </p> -->
             </button>
         </div>
 
-        <!----Elegir el pan---->
+        <!----Elección del pan---->
         <section class="seccion__pan">
             <h3>Elegí el pan</h3>
             <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
@@ -77,7 +79,7 @@
             </form>
         </section>
 
-        <!----ELEGIR LA PROTEINA---->
+        <!----Elección de la proteína---->
         <section class="seccion__proteina">
             <h3>Elegí la proteina</h3>
             <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
@@ -94,6 +96,7 @@
             </form>
         </section>
         
+        <!---Elección de los vegetales---->
         <section class="seccion__vegetales">
             <h3>Elegí los vegetales</h3>
             <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
@@ -110,6 +113,7 @@
             </form>
         </section>
 
+        <!----Elección de los aderezos---->
         <section class="seccion__aderezo">
             <h3>Elegí los aderezos</h3>
             <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
@@ -126,6 +130,7 @@
             </form>
         </section>
         
+        <!---Elección de los ingredientes extras---->
         <section class="seccion__extra">
             <h3>¿Querés extras?</h3>
             <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
@@ -142,6 +147,7 @@
             </form>
         </section>
         
+        <!----Ingreso de datos personales----->
         <section class="seccion__datos">
             <h3>¿Para quién es el pedido?</h3>
             <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
@@ -159,6 +165,7 @@
             </form>
         </section>
 
+        <!----Resumen de la compra---->
         <section class="seccion__resumen">
             <h3>Resumen de compra:</h3>
             <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
@@ -170,21 +177,22 @@
             </form>
         </section>
 
+        <!----Compra finalizada----->
         <section class="seccion__finalizado">
             <div class="div__finalizado">
                 <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
-                <h3>Pedido exitoso</h3>
-                <p>Ya estamos preparando tu sanguchito</p>
+                <div class="div__finalizado__texto">
+
+                    <h3>Pedido exitoso</h3>
+                    <p>Ya estamos preparando tu sanguchito.</p>
+                    <p>En 20 minutos estará en tu domicilio.</p>
+                </div>
             </div>
-            <div__pedido id="div__pedido__div--9" class="div__pedido__div--9">
-                <img class="div__pedido__img--9" src="imagenes/sanguche-9.png" alt="">
-            </div__pedido>
         </section>
         
     </div>
 
 
-        
     <script src="index.js"></script>
 </body>
 </html>
