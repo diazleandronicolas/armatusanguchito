@@ -361,14 +361,12 @@ h3 {
 
 .lista__total--modificado {
     height: auto;
-    position: absolute;
-    bottom: 6.5em;
-    right: 13.8em;
+    position: relative;
     width: auto;
     padding: 0;
-    margin: 0;
+    margin: 0 0 4em 0;
     font-size: 2.5em;
-    display: flex;
+    display: block;
     visibility: visible;
 }
 
@@ -415,12 +413,12 @@ h3 {
     flex-direction: column;
     visibility: visible;
     padding: 0;
-    margin: 0;
-    position: absolute;
+    margin: 0 0 4em 0;
+    position: relative;
     height: auto;
     width: auto;
-    left: 25em;
-    top: 13em;
+    justify-content: flex-start;
+
 }
 
 .lista__datos--modificado {
@@ -428,11 +426,23 @@ h3 {
     flex-direction: column;
     visibility: visible;
     padding: 0;
-    margin: 0;
-    position: absolute;
+    margin: 0 0 4em 0;
+    position: relative;
     height: auto;
     width: auto;
-    top: 40em;
-    left: 25em;
+    justify-content: center;
 }
 
+.lista__finales {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+    /* left: 26em; */
+    top: 8em;
+    position: absolute;
+    /* align-items: center; */
+    text-align: ;
+}
