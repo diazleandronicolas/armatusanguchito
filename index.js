@@ -13,7 +13,7 @@ const arrayIngredientes = [
     { id: 12, tipo: 'aderezo', nombre: 'picante', precio: 70},
     { id: 13, tipo: 'extra', nombre: 'huevo', precio: 70},
     { id: 14, tipo: 'extra', nombre: 'bacon', precio: 70},
-    { id: 15, tipo: 'extra', nombre: 'queso', precio: 70},
+    { id: 15, tipo: 'extra', nombre: 'queso', precio: 50},
 ]
 
 let resumenCarrito = false;
@@ -99,34 +99,43 @@ function agregarCarrito (producto) {
     
     nuevoCarrito = carritoLista
 
-    ingredientesPedido (nuevoCarrito)
+    console.log (nuevoCarrito)
+
+    //ingredientesPedido (nuevoCarrito)
     totalPedido(nuevoCarrito) 
 }
 
 // Iterando elementos del carrito para armar la lista del pedido
-function ingredientesPedido (carrito) {
+/* function ingredientesPedido (carrito) {
 
     carrito[carrito.length-1];{
         listaPedido.empty()
         listaPedido.append (`
             <li>Usted eligió ${carrito[carrito.length-1].tipo} ${carrito[carrito.length-1].nombre}</li>`)            
     }
-}
+} */
 
 // Contador del precio total
 function totalPedido (carrito) {
     let total = carrito.reduce ((acc, el) => acc += el.precio, 0)
     
     listaTotal.empty()
-    listaTotal.append (`<p>${total}</p>`)
+    listaTotal.append (`<h4>Subtotal: $${total}</h4>`)
+}
+
+function subtotalPedido (carrito) {
+    let subtotal = carrito.reduce ( (acc, el) => acc += el.precio, 0 )
+    //console.log (subtotal)
+
 }
 
 // Función que elimina el último ingrediente seleccionado.
 function pasoAnterior () { 
 
     listaPedido.empty ()   
-    carrito.pop()
+    carrito.pop ()
 
+    //subtotalPedido (carritoPop)
 }
 
 

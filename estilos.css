@@ -323,3 +323,14 @@ h3 {
     height: 100vh;
     position: absolute;
 }
+
+.lista__total {
+    height: 5vh;
+    position: absolute;
+    bottom: 6.5em;
+    right: 11.5em;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    font-size: 2.5em;
+}
