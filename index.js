@@ -13,7 +13,7 @@ const arrayIngredientes = [
     { id: 12, tipo: 'aderezo', nombre: 'picante', precio: 70},
     { id: 13, tipo: 'extra', nombre: 'huevo', precio: 70},
     { id: 14, tipo: 'extra', nombre: 'bacon', precio: 70},
-    { id: 15, tipo: 'extra', nombre: 'queso', precio: 50},
+    { id: 15, tipo: 'extra', nombre: 'queso', precio: 50}
 ]
 
 let resumenCarrito = false;
@@ -23,9 +23,10 @@ let carrito = []
 let nuevoCarrito = []
 
 const listaPedido = $('.lista__pedido')
-const listaTotal = $('.lista__total')
+const listaSubtotal = $('.lista__subtotal')
 const listaResumen = $('.lista__resumen')
 const listaDatos = $('.lista__datos')
+const listaTotal = $('.lista__total')
 
 const botonIniciarPedido = $('#btn-iniciar')
 
@@ -68,7 +69,7 @@ cerrarModal.on ('click', () => {
     nuevoCarrito = []
     listaPedido.empty()
     listaResumen.empty()
-    listaTotal.empty()
+    listaSubtotal.empty()
 
     $('.modal__contenedor').removeClass('modal__contenedor--modificado')
 
@@ -99,34 +100,24 @@ function agregarCarrito (producto) {
     
     nuevoCarrito = carritoLista
 
-    console.log (nuevoCarrito)
-
     //ingredientesPedido (nuevoCarrito)
-    totalPedido(nuevoCarrito) 
+    subtotalPedido(nuevoCarrito) 
 }
 
-// Iterando elementos del carrito para armar la lista del pedido
-/* function ingredientesPedido (carrito) {
-
-    carrito[carrito.length-1];{
-        listaPedido.empty()
-        listaPedido.append (`
-            <li>Usted eligió ${carrito[carrito.length-1].tipo} ${carrito[carrito.length-1].nombre}</li>`)            
-    }
-} */
+// Contador del precio subtotal
+function subtotalPedido (carrito) {
+    let subtotal = carrito.reduce ((acc, el) => acc += el.precio, 0)
+    
+    listaSubtotal.empty()
+    listaSubtotal.append (`<h4>Subtotal: $${subtotal}</h4>`)
+}
 
 // Contador del precio total
 function totalPedido (carrito) {
     let total = carrito.reduce ((acc, el) => acc += el.precio, 0)
-    
+
     listaTotal.empty()
-    listaTotal.append (`<h4>Subtotal: $${total}</h4>`)
-}
-
-function subtotalPedido (carrito) {
-    let subtotal = carrito.reduce ( (acc, el) => acc += el.precio, 0 )
-    //console.log (subtotal)
-
+    listaTotal.append (`<h4>Total: $${total}</h4>`)
 }
 
 // Función que elimina el último ingrediente seleccionado.
@@ -135,9 +126,7 @@ function pasoAnterior () {
     listaPedido.empty ()   
     carrito.pop ()
 
-    //subtotalPedido (carritoPop)
 }
-
 
 // Captando valor de radio button PAN.
 function elegirPan() {
@@ -206,7 +195,6 @@ function elegirVegetales () {
     botonConfirmarVegetales.on ('click', (event) => {
         event.preventDefault ()
 
-        console.log ('EGETAL')
         const vegetales = []
 
         $(".vegetales__checkbox:checkbox:checked").each(function() {
@@ -311,9 +299,6 @@ function elegirExtra() {
             $('.seccion__extra').removeClass('seccion__extra--modificado')
             $('.seccion__datos').addClass('seccion__datos--modificado')
             
-/*             $('.div__pedido__img--7').removeClass('div__pedido__img--7__modificado')
-            $('.div__pedido__img--6').addClass('div__pedido__img--6__modificado') */
-
             completarDatos()
 
         } else {
@@ -359,13 +344,18 @@ function completarDatos () {
         
             $('.seccion__datos').removeClass ('seccion__datos--modificado')
             $('.seccion__resumen').addClass ('seccion__resumen--modificado')
-    
-/*             $('.div__pedido').toggleClass ('div__pedido--modificado') */
-            
+                
             $('.div__pedido__img--7').removeClass('div__pedido__img--7__modificado')
             $('.div__pedido__img--8').addClass('div__pedido__img--8__modificado')
-    
+
+            $('.lista__resumen').addClass ('lista__resumen--modificado')
+            $('.lista__datos').addClass ('lista__datos--modificado')
+
+            $('.lista__total').addClass('lista__total--modificado')
+            $('.lista__subtotal').addClass ('lista__subtotal--modificado')
+
             resumenCompra(datosArray)
+            totalPedido (nuevoCarrito)
 
         } else {
             alert ('revise los campos')
@@ -379,7 +369,6 @@ function completarDatos () {
         $('.seccion__datos').removeClass ('seccion__datos--modificado')
         $('.seccion__extra').addClass ('seccion__extra--modificado')
         
-
         pasoAnterior()
     })
 }
@@ -389,7 +378,7 @@ function resumenCompra (datos) {
     if (!resumenCarrito) {
 
         nuevoCarrito.forEach( (el) => {
-            listaResumen.append (`<li>${el.tipo} ${el.nombre}</li>`)
+            listaResumen.append (`<p>-${el.tipo}: ${el.nombre}</p>`)
         })
         resumenCarrito = true;
     }
@@ -399,10 +388,10 @@ function resumenCompra (datos) {
         datos.forEach( (el) => {
             listaDatos.append (`
                             
-                            <li>nombre: ${el.nombre}</li>
-                            <li>telefono: ${el.telefono}</li>
-                            <li>calle: ${el.calle}</li>
-                            <li>altura: ${el.altura}</li>
+                            <p>-nombre: ${el.nombre}</p>
+                            <p>-telefono: ${el.telefono}</p>
+                            <p>-calle: ${el.calle}</p>
+                            <p>-altura: ${el.altura}</p>
                                         `)
         })
         resumenDatos = true;
@@ -424,6 +413,13 @@ function resumenCompra (datos) {
         $('.seccion__resumen').removeClass ('seccion__resumen--modificado')
         $('.seccion__datos').addClass ('seccion__datos--modificado')
 
-        pasoAnterior()
+        $('.lista__resumen').removeClass ('lista__resumen--modificado')
+        $('.lista__datos').removeClass ('lista__datos--modificado')
+
+        $('.div__pedido__img--8').removeClass('div__pedido__img--8__modificado')
+        $('.div__pedido__img--7').addClass('div__pedido__img--7__modificado')
+
+        $('.lista__subtotal').removeClass ('lista__subtotal--modificado')
+        $('.lista__total').removeClass('lista__total--modificado')
     })
 }
