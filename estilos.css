@@ -38,13 +38,26 @@ h1 {
     border-color: rgb(213, 175, 22);
 }
 
-h3 {
+h2 {
     padding: 1em;
     font-size: 2em;
     position: absolute;
     margin: 0;
     bottom: 18em;
     left: 9.6em;
+    color: black;
+}
+
+h3 {
+    position: relative;
+    margin: 0;
+    top: 1.2em;
+    left: 2em;
+    font-size: 5em;
+    font-family: 'Josefin Slab', sans-serif;
+    border-left-style: solid;
+    border-color: rgb(213, 175, 22);
+    padding: 0.4em;
 }
 
 #btn-iniciar {
@@ -75,7 +88,7 @@ h3 {
     height: 100vh;
 }
 
-.modal__piola {
+/* .modal__piola {
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -89,7 +102,7 @@ h3 {
 .modal__piola--modificado {
     display: flex;
     visibility: visible;
-}
+} */
 
 .modal__contenedor {
     width: 100%;
@@ -112,9 +125,8 @@ h3 {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
     justify-content: space-around;
-    justify-items: center;
 }
 
 .seccion__resumen,
@@ -127,15 +139,9 @@ h3 {
     height: 100vh;
     display: none;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    justify-items: center;
-    visibility: hidden;
-}
 
-.seccion__pan h3 {
-    font-size: 5em;
-    text-align: center;
+    justify-content: space-around;
+    visibility: hidden;
 }
 
 .div__pedido {
@@ -152,15 +158,6 @@ h3 {
     display: flex;
     visibility: visible;
 }
-
-
-/* .div__radio__pan {
-    width: 100%;
-    height: 20vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-} */
 
 #form__btn__pan {
     width: 100%;
@@ -219,13 +216,35 @@ h3 {
     display: none;
 }
 
-.div__pedido__img--4 {
+.div__pedido__img--3__modificado{
+    display: flex;
+    visibility: visible;
+}
+
+.div__pedido__img--4,
+.div__pedido__img--5,
+.div__pedido__img--6,
+.div__pedido__img--7,
+.div__pedido__img--8,
+.div__pedido__img--9 {
     display: none;
     position: absolute;
     width: 100%;
     height: 100vh;
 }
-.div__pedido__img--5,
+
+.div__pedido__img--4__modificado,
+.div__pedido__img--5__modificado,
+.div__pedido__img--6__modificado,
+.div__pedido__img--7__modificado,
+.div__pedido__img--8__modificado,
+.div__pedido__img--9__modificado {
+    display: flex;
+    visibility: visible;
+}
+
+
+/* .div__pedido__img--5,
 .div__pedido__img--6,
 .div__pedido__img--7,
 .div__pedido__img--8 {
@@ -236,10 +255,6 @@ h3 {
     visibility: hidden;
 }
 
-.div__pedido__img--4__modificado {
-    display: flex;
-    visibility: visible;
-}
 
 .div__pedido__img--5__modificado,
 .div__pedido__img--6__modificado,
@@ -247,12 +262,7 @@ h3 {
 .div__pedido__img--8__modificado {
     display: flex;
     visibility: visible;
-}
-
-.div__pedido__img--3__modificado{
-    display: flex;
-    visibility: visible;
-}
+} */
 
 .seccion__finalizado {
     width: 100%;
@@ -272,4 +282,69 @@ h3 {
     height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.opcion__estilos {
+    font-size: 2em;
+    position: relative;
+    left: 6em;
+    bottom: 10.5em;
+}
+
+.btn__siguiente {
+    width: 15%;
+    height: 5vh;
+    position: relative;
+    border-radius: 2em;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 4em;
+}
+
+.btn__cancelar {
+    width: 15%;
+    height: 5vh;
+    position: relative;
+    border-radius: 2em;
+    border-color: black;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.div__btn__pan,
+.div__btn__proteina,
+.div__btn__vegetales,
+.div__btn__aderezo,
+.div__btn__extra,
+.div__btn__datos,
+.div__btn__resumen {
+    position: relative;
+    bottom: 13em;
+    left: 12.5em;
+}
+
+.div__datos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 60%;
+    position: relative;
+    left: 11em;
+    bottom: 17em;
+    margin: 0;
+}
+
+.telefono__input,
+.calle__input,
+.altura__input,
+.nombre__input {
+    margin: 0.5em 1em;
+    height: 3vh;
+    border-radius: 2em;
+    padding: 0.2em 1em;
+    border-style: solid;
 }

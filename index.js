@@ -53,11 +53,9 @@ const cerrarModal = $('.div__cerrar')
 // Activando modal principal
 botonIniciarPedido.on ('click', () => {
 
-    $('.modal__piola').addClass('modal__piola--modificado')
-
     $('.modal__contenedor').addClass('modal__contenedor--modificado')
 
-    $('.div__pedido').addClass ('div__pedido--modificado')
+    $('.div__pedido').addClass('div__pedido--modificado')
     $('.div__pedido__img--3').toggleClass('div__pedido__img--3__modificado')
 
     elegirPan()
@@ -71,17 +69,23 @@ cerrarModal.on ('click', () => {
     listaResumen.empty()
     listaTotal.empty()
 
-    $('.modal__contenedor').removeClass ('modal__contenedor--modificado')
+    $('.modal__contenedor').removeClass('modal__contenedor--modificado')
 
-    $('.div__pedido--modificado').toggleClass ('div__pedido')
-    $('.modal__contenedor').toggleClass ('modal__contenedor--modificado')
+    $('.div__pedido').removeClass ('div__pedido--modificado')
+    $('.div__pedido__img--4').removeClass('div__pedido__img--4__modificado')
+    $('.div__pedido__img--5').removeClass('div__pedido__img--5__modificado')
+    $('.div__pedido__img--6').removeClass('div__pedido__img--6__modificado')
+    $('.div__pedido__img--7').removeClass('div__pedido__img--7__modificado')
+    $('.div__pedido__img--8').removeClass('div__pedido__img--8__modificado')
+    $('.div__pedido__img--9').removeClass('div__pedido__img--9__modificado')
+
     $('.seccion__pan').removeClass('seccion__pan--modificado')
     $('.seccion__proteina').removeClass('seccion__proteina--modificado')
     $('.seccion__vegetales').removeClass('seccion__vegetales--modificado')
     $('.seccion__aderezo').removeClass('seccion__aderezo--modificado')
     $('.seccion__extra').removeClass('seccion__extra--modificado')
     $('.seccion__datos').removeClass('seccion__datos--modificado')
-    $('.seccion__resumen').removeClass('seccion__resumen--modificado')
+    $('.seccion__resumen').removeClass('seccion__resumen--modificado') 
 })
 
 // Agregando producto elegido al carrito
@@ -294,8 +298,8 @@ function elegirExtra() {
 
         if (extras.length > 0) {
             
-            $('.seccion__extra').removeClass ('seccion__extra--modificado')
-            $('.seccion__datos').addClass ('seccion__datos--modificado')
+            $('.seccion__extra').removeClass('seccion__extra--modificado')
+            $('.seccion__datos').addClass('seccion__datos--modificado')
             
             $('.div__pedido__img--7').removeClass('div__pedido__img--7__modificado')
             $('.div__pedido__img--8').addClass('div__pedido__img--8__modificado')
