@@ -25,6 +25,7 @@ let nuevoCarrito = []
 const listaPedido = $('.lista__pedido')
 const listaTotal = $('.lista__total')
 const listaResumen = $('.lista__resumen')
+const listaDatos = $('.lista__datos')
 
 const botonIniciarPedido = $('#btn-iniciar')
 
@@ -301,8 +302,8 @@ function elegirExtra() {
             $('.seccion__extra').removeClass('seccion__extra--modificado')
             $('.seccion__datos').addClass('seccion__datos--modificado')
             
-            $('.div__pedido__img--7').removeClass('div__pedido__img--7__modificado')
-            $('.div__pedido__img--8').addClass('div__pedido__img--8__modificado')
+/*             $('.div__pedido__img--7').removeClass('div__pedido__img--7__modificado')
+            $('.div__pedido__img--6').addClass('div__pedido__img--6__modificado') */
 
             completarDatos()
 
@@ -350,7 +351,10 @@ function completarDatos () {
             $('.seccion__datos').removeClass ('seccion__datos--modificado')
             $('.seccion__resumen').addClass ('seccion__resumen--modificado')
     
-            $('.div__pedido').toggleClass ('div__pedido--modificado')
+/*             $('.div__pedido').toggleClass ('div__pedido--modificado') */
+            
+            $('.div__pedido__img--7').removeClass('div__pedido__img--7__modificado')
+            $('.div__pedido__img--8').addClass('div__pedido__img--8__modificado')
     
             resumenCompra(datosArray)
 
@@ -365,6 +369,7 @@ function completarDatos () {
 
         $('.seccion__datos').removeClass ('seccion__datos--modificado')
         $('.seccion__extra').addClass ('seccion__extra--modificado')
+        
 
         pasoAnterior()
     })
@@ -383,7 +388,8 @@ function resumenCompra (datos) {
     if (!resumenDatos){
 
         datos.forEach( (el) => {
-            listaResumen.append (`
+            listaDatos.append (`
+                            
                             <li>nombre: ${el.nombre}</li>
                             <li>telefono: ${el.telefono}</li>
                             <li>calle: ${el.calle}</li>
@@ -398,6 +404,9 @@ function resumenCompra (datos) {
 
         $('.seccion__finalizado').addClass ('seccion__finalizado--modificado')
         $('.seccion__resumen').removeClass('seccion__resumen--modificado')
+
+        $('.div__pedido__img--8').removeClass('div__pedido__img--8__modificado')
+        $('.div__pedido__img--7').addClass('div__pedido__img--7__modificado')
     })
 
     botonCancelarCompra.on ('click', (event) => {

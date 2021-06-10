@@ -146,7 +146,7 @@ h3 {
 
 .div__pedido {
     width: 50%;
-    background-color: teal;
+    background-color: white;
     position: absolute;
     right: 0px;
     height: 100vh;
@@ -168,15 +168,6 @@ h3 {
     justify-items: space-evenly;
 }
 
-.div__btn__pan {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    position: relative;
-    bottom: 1px;
-}
-
 .seccion__proteina--modificado,
 .seccion__vegetales--modificado,
 .seccion__aderezo--modificado,
@@ -191,7 +182,6 @@ h3 {
     display: none;
     visibility: hidden;
 }
-
 
 .seccion__resumen--modificado {
     display: flex;
@@ -242,27 +232,6 @@ h3 {
     display: flex;
     visibility: visible;
 }
-
-
-/* .div__pedido__img--5,
-.div__pedido__img--6,
-.div__pedido__img--7,
-.div__pedido__img--8 {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    visibility: hidden;
-}
-
-
-.div__pedido__img--5__modificado,
-.div__pedido__img--6__modificado,
-.div__pedido__img--7__modificado,
-.div__pedido__img--8__modificado {
-    display: flex;
-    visibility: visible;
-} */
 
 .seccion__finalizado {
     width: 100%;
@@ -347,4 +316,10 @@ h3 {
     border-radius: 2em;
     padding: 0.2em 1em;
     border-style: solid;
+}
+
+.secciones__img {
+    width: 50%;
+    height: 100vh;
+    position: absolute;
 }

@@ -68,6 +68,7 @@
         <!----Elegir el pan---->
         <section class="seccion__pan">
             <h3>Elegí el pan</h3>
+            <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
             <form id="form__btn__pan" action="">
                 <div class="div__radio__pan opcion__estilos">
                     <input class="pan__radio" type="radio" name="pan" value="blanco"> Blanco
@@ -75,7 +76,7 @@
                     <input class="pan__radio" type="radio" name="pan" value="parmesano"> Parmesano
                 </div>
                 <div class="div__btn__pan">
-                    <button id="form__btn__pan--atras" class="btn__atras">Cancelar</button>
+                    <button id="form__btn__pan--atras" class="btn__cancelar">Cancelar</button>
                     <button id="form__btn__pan--siguiente" class="btn__siguiente">Siguiente</button>
                 </div>
             </form>
@@ -84,6 +85,7 @@
         <!----ELEGIR LA PROTEINA---->
         <section class="seccion__proteina">
             <h3>Elegí la proteina</h3>
+            <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
             <form id="form__btn__proteina" action="">
                 <div class="div__proteina opcion__estilos">
                     <input class="proteina__radio" type="radio" name="proteina" value="lomo"> Lomo
@@ -99,6 +101,7 @@
         
         <section class="seccion__vegetales">
             <h3>Elegí los vegetales</h3>
+            <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
             <form id="form__btn__vegetales" action="">
                 <div class="div__vegetales opcion__estilos">
                     <input class="vegetales__checkbox" name="vegetales" type="checkbox" value="tomate"> Tomate
@@ -114,6 +117,7 @@
 
         <section class="seccion__aderezo">
             <h3>Elegí los aderezos</h3>
+            <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
             <form action="" id="form__btn__aderezo">
                 <div class="div__aderezo opcion__estilos">
                     <input class="aderezo__checkbox" type="checkbox" name="aderezo" value="mayonesa"> Mayonesa
@@ -129,6 +133,7 @@
         
         <section class="seccion__extra">
             <h3>¿Querés extras?</h3>
+            <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
             <form action="" id="form__btn__extra">
                 <div class="div__extra opcion__estilos">
                     <input class="extra__checkbox" type="checkbox" name="extra" value="extra"> Huevo
@@ -144,6 +149,7 @@
         
         <section class="seccion__datos">
             <h3>¿Para quién es el pedido?</h3>
+            <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
             <form action="" id="form__btn__datos">
                 <div class="div__datos">
                     <input class="nombre__input" type="text" placeholder="Nombre" id="">
@@ -159,10 +165,16 @@
         </section>
 
         <section class="seccion__resumen">
-            <div class="div__resumen">
-                <h3>Resumen de compra:</h3>
-                <ul class="lista__resumen"></ul>
-            </div>
+            <h3>Resumen de compra:</h3>
+            <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
+            <ul class="lista__resumen">
+                <h4>Resumen:</h4>
+            </ul>
+            <ul class="lista__datos">
+                <h4>Tus datos:</h4>
+            </ul>
+<!--             <div class="div__resumen">
+            </div> -->
             <form action="" id="form__btn__resumen">
                 <div class="div__btn__resumen">
                     <button id="form__btn__resumen--atras" class="btn__cancelar">Atrás</button>
@@ -173,6 +185,7 @@
 
         <section class="seccion__finalizado">
             <div class="div__finalizado">
+                <img class="secciones__img" src="imagenes/sanguche-1.png" alt="">
                 <h3>Pedido exitoso</h3>
                 <p>Ya estamos preparando tu sanguchito</p>
             </div>
