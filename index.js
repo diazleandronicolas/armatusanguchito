@@ -405,6 +405,12 @@ function resumenCompra (datos) {
 
         $('.div__pedido__img--8').removeClass('div__pedido__img--8__modificado')
         $('.div__pedido__img--7').addClass('div__pedido__img--7__modificado')
+
+        $('.lista__resumen').removeClass ('lista__resumen--modificado')
+        $('.lista__datos').removeClass ('lista__datos--modificado')
+
+        $('.lista__total').removeClass('lista__total--modificado')
+        $('.lista__subtotal').removeClass ('lista__subtotal--modificado')
     })
 
     botonCancelarCompra.on ('click', (event) => {
