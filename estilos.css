@@ -143,11 +143,6 @@ h3 {
     visibility: visible;
 }
 
-/* .seccion__resumen--modificado {
-    display: flex;
-    visibility: visible;
-} */
-
 .div__pedido {
     width: 50%;
     background-color: white;
@@ -305,18 +300,6 @@ h3 {
     color: black;
     cursor: pointer;
     font-family: 'Open Sans', sans-serif;
-}
-
-.div__btn__pan,
-.div__btn__proteina,
-.div__btn__vegetales,
-.div__btn__aderezo,
-.div__btn__extra,
-.div__btn__datos,
-.div__btn__resumen {
-/*     position: relative;
-    bottom: 13em;
-    left: 12.5em; */
 }
 
 .div__datos {
@@ -499,4 +482,114 @@ h3 {
     top: 0.2em;
     left: 6em;
     font-size: 2em;
+}
+
+/*-----Media Queries-----*/
+
+@media (max-width: 1199.98px) {
+
+    body {
+        font-size: 9px;
+    }
+    
+    h1 {
+        font-size: 5em;
+        top: 4.5em;
+    }
+
+    h2 {
+        left: 7.6em;
+    }
+
+    #btn-iniciar {
+        left: 12em;
+    }
+
+    h3 {
+        left: 2.5em;
+    }
+
+    .lista__subtotal {
+        bottom: 5.5em;
+        left: 35%;
+    }
+
+    .seccion__datos h3 {
+        left: 2.8em;
+        font-size: 4em;
+        top: 16%;
+    }
+
+    #form__btn__datos {
+        height: 27vh;
+    }
+
+    #form__btn__resumen--siguiente {
+        width: 27%;
+    }
+
+    .lista__finales {
+        left: 22em;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 8px;
+    }
+
+    .iniciar__compra {
+        position: absolute;
+        left: 0;
+    }
+
+    .imagen__sanguche {
+        position: absolute;
+        right: 0;
+    }
+
+    h1 {
+        font-size: 4em;
+        top: 6em;
+    }
+
+    h2 {
+        width: 100%;
+        left: 26%;
+        top: 42%;
+    }
+
+    #btn-iniciar {
+        width: 25%;
+        left: 8.5em;
+    }
+
+    .opcion__estilos {
+        font-size: 1.7em;
+    }
+
+    #form__btn__pan,
+    #form__btn__proteina,
+    #form__btn__vegetales,
+    #form__btn__aderezo,
+    #form__btn__extra {
+        height: 24vh;
+    }
+    
+    .btn__cancelar,
+    .btn__siguiente{
+        width: 25%;
+    }
+
+    .lista__subtotal {
+        bottom: 8.5em;
+        left: 33%;
+    }
+
+    .nombre__input,
+    .telefono__input,
+    .calle__input,
+    .altura__input {
+        width: 65%;
+    }
 }
