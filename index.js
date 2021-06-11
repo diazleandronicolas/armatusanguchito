@@ -72,6 +72,7 @@ cerrarModal.on ('click', () => {
     listaResumen.empty()
     listaSubtotal.empty()
 
+
     $('.modal__contenedor').removeClass('modal__contenedor--modificado')
 
     $('.div__pedido').removeClass ('div__pedido--modificado')
@@ -94,6 +95,8 @@ cerrarModal.on ('click', () => {
     $('.lista__subtotal').removeClass ('lista__subtotal--modificado')
     $('.lista__total').removeClass ('lista__total--modificado')
     $('.lista__datos').removeClass ('lista__datos--modificado')
+
+    datosArray = []
 
 })
 
@@ -364,8 +367,19 @@ function completarDatos () {
             resumenCompra(datosArray)
             totalPedido (nuevoCarrito)
 
+            inputNombre.value = ''
+            inputTelefono.value = ''
+            inputCalle.value = ''
+            inputAltura.value = ''
+
         } else {
             alert ('revise los campos')
+
+
+            inputNombre.val() = ''
+            inputTelefono.val() = ''
+            inputCalle.value = ''
+            inputAltura.value = ''
         }
 
     })
@@ -419,6 +433,8 @@ function resumenCompra (datos) {
         $('.lista__total').removeClass('lista__total--modificado')
 
         $('.lista__finales').addClass ('lista__finales--modificado')
+
+        $('.div__cerrar').addClass('div__cerrar--modificado')
 
     })
 

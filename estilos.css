@@ -53,8 +53,8 @@ h2 {
 h3 {
     position: relative;
     margin: 0;
-    top: 1.2em;
-    left: 2em;
+    top: 20%;
+    left: 3.2em;
     font-size: 5em;
     font-family: 'Josefin Slab', sans-serif;
     border-left-style: solid;
@@ -90,22 +90,6 @@ h3 {
     height: 100vh;
 }
 
-/* .modal__piola {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    display: none;
-    flex-direction: row;
-    visibility: hidden;
-    background-color: white;
-    top: 0em;
-}
-
-.modal__piola--modificado {
-    display: flex;
-    visibility: visible;
-} */
-
 .modal__contenedor {
     width: 100%;
     height: 100vh;
@@ -127,8 +111,12 @@ h3 {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    
     justify-content: space-around;
+}
+
+.seccion__pan--modificado {
+    display: none;
+    visibility: hidden;
 }
 
 .seccion__resumen,
@@ -141,10 +129,24 @@ h3 {
     height: 100vh;
     display: none;
     flex-direction: column;
-
     justify-content: space-around;
     visibility: hidden;
 }
+
+.seccion__proteina--modificado,
+.seccion__vegetales--modificado,
+.seccion__aderezo--modificado,
+.seccion__extra--modificado,
+.seccion__datos--modificado,
+.seccion__resumen--modificado {
+    display: flex;
+    visibility: visible;
+}
+
+/* .seccion__resumen--modificado {
+    display: flex;
+    visibility: visible;
+} */
 
 .div__pedido {
     width: 50%;
@@ -161,44 +163,63 @@ h3 {
     visibility: visible;
 }
 
-#form__btn__pan {
+#form__btn__pan,
+#form__btn__proteina,
+#form__btn__vegetales,
+#form__btn__aderezo,
+#form__btn__extra {
     width: 100%;
-    height: auto;
+    height: 30vh;
     flex-direction: column;
-    align-items: space-evenly;
-    justify-content: space-evenly;
-    justify-items: space-evenly;
-}
-
-.seccion__proteina--modificado,
-.seccion__vegetales--modificado,
-.seccion__aderezo--modificado,
-.seccion__extra--modificado,
-.seccion__datos--modificado,
-.seccion__resumen--modifcado {
+    align-items: stretch;
+    justify-content: space-between;
+    position: relative;
+    left: 25%;
+    padding: 0;
+    bottom: 10em;
     display: flex;
-    visibility: visible;
 }
 
-.seccion__pan--modificado {
-    display: none;
-    visibility: hidden;
-}
-
-.seccion__resumen--modificado {
+#form__btn__datos {
+    width: 100%;
+    height: 20vh;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    position: relative;
+    left: 25%;
+    padding: 0;
+    bottom: 10em;
     display: flex;
-    visibility: visible;
+}
+
+#form__btn__resumen {
+    width: 100%;
+    height: 30vh;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    position: relative;
+    left: 25%;
+    padding: 0;
+    bottom: 0em;
+    display: flex;
 }
 
 .div__cerrar {
-    background-color: blue;
     width: 2%;
     height: auto;
     position: absolute;
-    left: 98%;
     z-index: 2;
     cursor: pointer;
-    top: 0%;
+    top: 2%;
+    left: 95%;
+    padding: 1em;
+}
+
+.div__cerrar--modificado {
+    display: none;
+    visibility: visible;
 }
 
 .div__pedido__img--3 {
@@ -206,6 +227,7 @@ h3 {
     height: 100vh;
     position: absolute;
     display: none;
+    object-fit: contain;
 }
 
 .div__pedido__img--3__modificado{
@@ -258,9 +280,7 @@ h3 {
 
 .opcion__estilos {
     font-size: 2em;
-    position: relative;
-    left: 6em;
-    bottom: 10.5em;
+    margin: 2em 0;
 }
 
 .btn__siguiente {
@@ -294,9 +314,9 @@ h3 {
 .div__btn__extra,
 .div__btn__datos,
 .div__btn__resumen {
-    position: relative;
+/*     position: relative;
     bottom: 13em;
-    left: 12.5em;
+    left: 12.5em; */
 }
 
 .div__datos {
@@ -305,8 +325,6 @@ h3 {
     grid-template-rows: 1fr 1fr;
     width: 60%;
     position: relative;
-    left: 11em;
-    bottom: 17em;
     margin: 0;
 }
 
@@ -442,7 +460,7 @@ h3 {
     justify-content: center;
     align-items: baseline;
     height: 60vh;
-    width: 89%;
+    width: auto;
     left: 27em;
     top: 15em;
     position: absolute;
