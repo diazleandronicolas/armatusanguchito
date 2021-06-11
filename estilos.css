@@ -486,6 +486,8 @@ h3 {
 
 /*-----Media Queries-----*/
 
+/*----Laptop----*/
+
 @media (max-width: 1199.98px) {
 
     body {
@@ -532,6 +534,9 @@ h3 {
         left: 22em;
     }
 }
+
+
+/*----Tablet----*/
 
 @media (max-width: 768px) {
     body {
@@ -589,7 +594,159 @@ h3 {
     .nombre__input,
     .telefono__input,
     .calle__input,
-    .altura__input {
+    .altura__input {
         width: 65%;
+    }
+
+    .lista__finales {
+        top: 22em;
+        font-size: 0.9em;
+        left: 19em;
+    }
+
+    #form__btn__resumen--siguiente {
+        width: auto;
+        padding: 0 1em;
+    }
+
+    .div__finalizado__texto {
+        left: 2em;
+    }
+}
+
+
+/*-----Celular-----*/
+
+@media (max-width: 426px) {
+    .iniciar__compra {
+        width: 100%;
+    }
+
+    .div__cerrar {
+        width: 6%;
+        left: 86%;
+    }
+    .imagen__sanguche {
+        display: none;
+    }
+
+    .div__pedido__img--3,
+    .div__pedido__img--4,
+    .div__pedido__img--5,
+    .div__pedido__img--6,
+    .div__pedido__img--7,
+    .div__pedido__img--8,
+    .div__pedido__img--9 {
+        display: none;
+    }
+
+    .seccion__pan,
+    .seccion__proteina,
+    .seccion__vegetales,
+    .seccion__aderezo,
+    .seccion__extra,
+    .seccion__datos,
+    .seccion__resumen {
+        width: 100%;
+    }
+
+    .secciones__img {
+        width: 100%;
+    }
+
+    h3 {
+        top: 6%;
+        width: fit-content;
+        left: 1.6em;
+    }
+
+    h2 {
+        width: fit-content;
+    }
+
+    #form__btn__pan,
+    #form__btn__proteina,
+    #form__btn__vegetales,
+    #form__btn__aderezo,
+    #form__btn__extra {
+        width: max-content;
+        bottom: 16em;
+        left: 7em;
+    }
+
+    .btn__siguiente {
+        margin: 0 2em;
+        width: 35%;
+    }
+
+    .btn__cancelar {
+        width: 35%;
+    }
+
+    .div__btn__proteina,
+    .div__btn__vegetales,
+    .div__btn__aderezo,
+    .div__btn__extra,
+    .div__btn__datos,
+    .div__btn__pan {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .opcion__estilos {
+        margin: 0;
+    }
+
+    .seccion__datos h3 {
+        top: 7%;
+        width: fit-content;
+        font-size: 3em;
+    }
+
+    .div__datos {
+        width: 70%;
+    }
+
+    .div__btn__datos {
+        width: 60%;
+    }
+
+    #form__btn__datos {
+        width: 100%;
+        left: 0em;
+        bottom: 15em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #form__btn__resumen {
+        width: 68%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        left: 13em;
+    }
+
+    .seccion__resumen h3 {
+        font-size: 4.5em;
+    }
+
+    .div__pedido--modificado {
+        width: 100%;
+    }
+
+    .lista__finales {
+        left: 25em;
+    }
+
+    .div__finalizado {
+        width: 100%;
+    }
+
+    .div__finalizado__texto{
+        width: fit-content;
+        left: 0em;
     }
 }
