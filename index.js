@@ -157,7 +157,7 @@ function elegirPan() {
 
             elegirProteina ()
         } else {
-            alert ('elija una opción para continuar')
+            alert ('Por favor, elija una opción para continuar')
         }
     })
 }
@@ -182,7 +182,7 @@ function elegirProteina () {
             
             elegirVegetales()
         } else {
-            alert ('elija una opción para continuar')
+            alert ('Por favor, elija una opción para continuar')
         }
     })
 
@@ -227,7 +227,7 @@ function elegirVegetales () {
                 elegirAderezo()
 
         } else {
-            alert ('elija una opción para continuar')
+            alert ('Por favor, elija una opción para continuar')
         }
 
     })
@@ -272,7 +272,7 @@ function elegirAderezo (){
 
         } else {
 
-            alert ('elija una opción para continuar')
+            alert ('Por favor, elija una opción para continuar')
         }
     })
 
@@ -312,7 +312,7 @@ function elegirExtra() {
             completarDatos()
 
         } else {
-            alert ('elija una opción para continuar')
+            alert ('Por favor, elija una opción para continuar')
         }
     })
 
@@ -373,7 +373,7 @@ function completarDatos () {
             inputAltura.value = ''
 
         } else {
-            alert ('revise los campos')
+            alert ('Por favor, rellene todos los campos')
 
 
             inputNombre.val() = ''

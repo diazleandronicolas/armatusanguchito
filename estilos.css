@@ -669,7 +669,7 @@ h3 {
     #form__btn__vegetales,
     #form__btn__aderezo,
     #form__btn__extra {
-        width: max-content;
+        max-width: fit-content;
         bottom: 16em;
         left: 7em;
     }
